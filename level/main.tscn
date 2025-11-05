@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dejkcym2erm1l"]
+[gd_scene load_steps=11 format=3 uid="uid://dejkcym2erm1l"]
 
 [ext_resource type="Script" uid="uid://bsimjmtawl0u1" path="res://level/main.gd" id="1_414cb"]
 [ext_resource type="PackedScene" uid="uid://bfcrrry3qqv4i" path="res://objs/obstacles/obstacle.tscn" id="3_nt2wp"]
@@ -9,584 +9,593 @@
 [ext_resource type="PackedScene" uid="uid://631pf63y7wqo" path="res://player/player_captain.tscn" id="7_j70lj"]
 [ext_resource type="PackedScene" uid="uid://cgcrj8r0lolgm" path="res://objs/pickup_items/shield.tscn" id="8_ry1g7"]
 [ext_resource type="PackedScene" uid="uid://dfhrsd3cdrmtl" path="res://level/stations/station.tscn" id="9_ry1g7"]
+[ext_resource type="PackedScene" uid="uid://bqysgv85fsncy" path="res://util/game_over_screen.tscn" id="10_tdkxd"]
 
 [node name="Main" type="Node2D" groups=["main"]]
 position = Vector2(576, 13)
 script = ExtResource("1_414cb")
+
+[node name="GameOverScreen" parent="." instance=ExtResource("10_tdkxd")]
+visible = false
+top_level = true
 
 [node name="PlayerCaptain" parent="." instance=ExtResource("7_j70lj")]
 top_level = true
 position = Vector2(562, 334)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("targets") instance=ExtResource("6_klgnm")]
-position = Vector2(612, 184)
+position = Vector2(562, 334)
 targets = [NodePath("../PlayerCaptain")]
 max_zoom = 0.8
 
 [node name="Obstacles" type="Node2D" parent="."]
 script = ExtResource("3_qh04p")
+is_paused = false
 
 [node name="Obstacle" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(362.413, 1000.7)
+position = Vector2(-324.074, -179.891)
 
 [node name="Obstacle2" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-34.8262, -93.5965)
+position = Vector2(-453.955, 35.7646)
 
 [node name="Obstacle3" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-336.125, 1839.16)
+position = Vector2(-397.276, 469.173)
 
 [node name="Obstacle4" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-487.608, -466.354)
+position = Vector2(-259.473, 1493.05)
 
 [node name="Obstacle5" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-164.531, -2181.69)
+position = Vector2(210.425, -1621.61)
 
 [node name="Obstacle6" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(127.63, 1661.5)
+position = Vector2(493.867, -64.0744)
 
 [node name="Obstacle7" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-473.087, -638.722)
+position = Vector2(-337.739, -1320.66)
 
 [node name="Obstacle8" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(181.793, 871.145)
+position = Vector2(179.275, -2221.91)
 
 [node name="Obstacle9" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(393.277, -1129.95)
+position = Vector2(-366.105, -425.556)
 
 [node name="Obstacle10" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-426.678, 240.75)
+position = Vector2(120.333, -2431.49)
 
 [node name="Obstacle11" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(87.1816, -1596.41)
+position = Vector2(201.747, 680.417)
 
 [node name="Obstacle12" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-97.4095, 2492.46)
+position = Vector2(26.626, -1253.67)
 
 [node name="Obstacle13" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-149.356, -755.504)
+position = Vector2(290.243, 485.307)
 
 [node name="Obstacle14" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-318.616, -2213.48)
+position = Vector2(494.434, -541.549)
 
 [node name="Obstacle15" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(353.08, 1240.1)
+position = Vector2(294.574, -1341.8)
 
 [node name="Obstacle16" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-494.3, -569.8)
+position = Vector2(369.26, -876.829)
 
 [node name="Obstacle17" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(38.4521, 2383.26)
+position = Vector2(-408.476, 1706.67)
 
 [node name="Obstacle18" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(46.9611, 2352.26)
+position = Vector2(-204.741, 1667.12)
 
 [node name="Obstacle19" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-400.068, 1829.54)
+position = Vector2(-142.033, 1391.65)
 
 [node name="Obstacle20" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-299.866, 618.306)
+position = Vector2(90.5672, 1957.62)
 
 [node name="Obstacle21" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-481.97, -263.482)
+position = Vector2(-248.33, -1446.53)
 
 [node name="Obstacle22" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(126.49, -363.366)
+position = Vector2(290.595, 537.353)
 
 [node name="Obstacle23" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(435.578, 903.287)
+position = Vector2(232.771, -2065.11)
 
 [node name="Obstacle24" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(493.203, 47.7266)
+position = Vector2(-451.853, 1705.42)
 
 [node name="Obstacle25" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-195.477, 1809.75)
+position = Vector2(350.617, 1458.23)
 
 [node name="Obstacle26" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-251.244, -931.786)
+position = Vector2(379.947, 1327.57)
 
 [node name="Obstacle27" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(483.432, -91.4159)
+position = Vector2(54.767, 1769.3)
 
 [node name="Obstacle28" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-476.393, 2356.73)
+position = Vector2(-162.865, -114.13)
 
 [node name="Obstacle29" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(136.503, 480.565)
+position = Vector2(138.371, 2392.33)
 
 [node name="Obstacle30" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-267.233, -2257.17)
+position = Vector2(-386.274, -2277.89)
 
 [node name="Obstacle31" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-388.526, 1465.99)
+position = Vector2(-152.63, 1284.22)
 
 [node name="Obstacle32" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-352.277, 1779.09)
+position = Vector2(347.828, -1519.84)
 
 [node name="Obstacle33" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-459.767, -988.64)
+position = Vector2(188.096, -1046.3)
 
 [node name="Obstacle34" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(302.1, -1322.03)
+position = Vector2(-460.912, -1134.9)
 
 [node name="Obstacle35" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(174.297, -1386.3)
+position = Vector2(-428.704, -1140.98)
 
 [node name="Obstacle36" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-444.015, 1719.34)
+position = Vector2(77.1118, -2221.75)
 
 [node name="Obstacle37" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-68.2843, -1297)
+position = Vector2(-202.535, -2269.57)
 
 [node name="Obstacle38" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-208.404, 1688.43)
+position = Vector2(-60.688, 463.237)
 
 [node name="Obstacle39" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(152.115, 2422.87)
+position = Vector2(9.15173, 2308.37)
 
 [node name="Obstacle40" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(224.947, 1326.97)
+position = Vector2(248.432, -1514.97)
 
 [node name="Obstacle41" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(369.51, 641.863)
+position = Vector2(449.773, 2455.44)
 
 [node name="Obstacle42" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-192.994, -2440.14)
+position = Vector2(-24.9832, 2380.93)
 
 [node name="Obstacle43" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(483.322, 1156)
+position = Vector2(442.674, 1987.76)
 
 [node name="Obstacle44" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(121.963, -2122.18)
+position = Vector2(378.984, -1841.16)
 
 [node name="Obstacle45" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(426.399, -2225.75)
+position = Vector2(-65.0803, -2404.55)
 
 [node name="Obstacle46" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(242.701, 463.03)
+position = Vector2(323.015, -480.793)
 
 [node name="Obstacle47" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-445.941, -2287.24)
+position = Vector2(-76.6133, 430.419)
 
 [node name="Obstacle48" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-65.5904, 269.625)
+position = Vector2(225.083, -2499.79)
 
 [node name="Obstacle49" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(470.057, -2382.9)
+position = Vector2(269.357, 2183.64)
 
 [node name="Obstacle50" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-403.898, -404.605)
+position = Vector2(-261.357, -1888.32)
 
 [node name="Obstacle51" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-270.891, -1711.1)
+position = Vector2(357.713, -1366.71)
 
 [node name="Obstacle52" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(249.797, 755.418)
+position = Vector2(-174.076, -1980.23)
 
 [node name="Obstacle53" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(216.581, -560.346)
+position = Vector2(208.048, -1985.58)
 
 [node name="Obstacle54" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(129.318, -1008.44)
+position = Vector2(354.19, 109.076)
 
 [node name="Obstacle55" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(319.153, 1923.63)
+position = Vector2(402.044, 275.731)
 
 [node name="Obstacle56" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(433.481, 1659.47)
+position = Vector2(175.668, -492.314)
 
 [node name="Obstacle57" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-439.792, -1806.23)
+position = Vector2(227.693, 925.536)
 
 [node name="Obstacle58" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(233.11, -1907.43)
+position = Vector2(-145.258, 1951.54)
 
 [node name="Obstacle59" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-335.372, 646.884)
+position = Vector2(-344.129, 433.614)
 
 [node name="Obstacle60" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-253.253, -110.743)
+position = Vector2(482.404, -1350.51)
 
 [node name="Obstacle61" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-145.683, -909.134)
+position = Vector2(74.6255, 2045.06)
 
 [node name="Obstacle62" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-400.913, -2359.88)
+position = Vector2(433.693, 1733.58)
 
 [node name="Obstacle63" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-423.473, -622.23)
+position = Vector2(-487.164, 1473.47)
 
 [node name="Obstacle64" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-377.836, -440.415)
+position = Vector2(221.556, 1665.24)
 
 [node name="Obstacle65" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-101.772, -2139.45)
+position = Vector2(420.746, -1091.4)
 
 [node name="Obstacle66" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(92.4821, 186.844)
+position = Vector2(-431.025, 346.484)
 
 [node name="Obstacle67" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-445.456, -1446.56)
+position = Vector2(-340.585, 1743.68)
 
 [node name="Obstacle68" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(122.149, -1858.91)
+position = Vector2(31.2564, 1472.37)
 
 [node name="Obstacle69" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-329.335, -311.82)
+position = Vector2(-368.001, -2071.84)
 
 [node name="Obstacle70" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(200.022, -1686.54)
+position = Vector2(-153.391, -1322.15)
 
 [node name="Obstacle71" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-491.77, -2347.75)
+position = Vector2(474.948, 480.283)
 
 [node name="Obstacle72" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-229.671, 1513.05)
+position = Vector2(68.4841, -1390.07)
 
 [node name="Obstacle73" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(170.753, -1492.22)
+position = Vector2(486.769, -2049.4)
 
 [node name="Obstacle74" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(68.1263, 2059.83)
+position = Vector2(-27.7648, -1663.15)
 
 [node name="Obstacle75" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(242.154, -1136.21)
+position = Vector2(-26.8936, 1546.1)
 
 [node name="Obstacle76" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-227.044, -1816.44)
+position = Vector2(282.546, 2460.95)
 
 [node name="Obstacle77" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-172.874, -1962.29)
+position = Vector2(-339.339, 941.184)
 
 [node name="Obstacle78" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-157.863, 2237.76)
+position = Vector2(-435.912, -2362.43)
 
 [node name="Obstacle79" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(298.085, -2452.56)
+position = Vector2(-329.318, -2053.49)
 
 [node name="Obstacle80" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(459.324, 376.553)
+position = Vector2(-287.716, -654.218)
 
 [node name="Obstacle81" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-99.6789, -950.868)
+position = Vector2(267.76, 1867.76)
 
 [node name="Obstacle82" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-408.189, 1206.7)
+position = Vector2(347.43, -2256.63)
 
 [node name="Obstacle83" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(258.624, 834.043)
+position = Vector2(358.14, -2360.01)
 
 [node name="Obstacle84" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-12.4634, 2166.75)
+position = Vector2(324.081, 2389.84)
 
 [node name="Obstacle85" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(373.355, -782.055)
+position = Vector2(186.717, -1391.87)
 
 [node name="Obstacle86" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(-217.397, 1452.92)
+position = Vector2(-195.342, 766.488)
 
 [node name="Obstacle87" parent="Obstacles" instance=ExtResource("3_nt2wp")]
-position = Vector2(14.3305, 2476.81)
+position = Vector2(188.108, -422.915)
 
 [node name="Fuels" type="Node2D" parent="."]
 script = ExtResource("3_qh04p")
+is_paused = false
+speed = 1.0
 
 [node name="Fuel" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(250.173, 1231.35)
+position = Vector2(93.8931, -264.783)
 
 [node name="Fuel2" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(1.77051, -448.38)
+position = Vector2(-315.671, -2190)
 
 [node name="Fuel3" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-158.765, 2219.96)
+position = Vector2(312.227, -1066.12)
 
 [node name="Fuel4" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-165.757, 1053.86)
+position = Vector2(-31.6057, -2371.03)
 
 [node name="Fuel5" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-438.725, -980.509)
+position = Vector2(487.37, 364.872)
 
 [node name="Fuel6" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(44.1983, 1906.21)
+position = Vector2(-143.838, -827.995)
 
 [node name="Fuel7" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-376.875, 434.895)
+position = Vector2(-114.403, -718.169)
 
 [node name="Fuel8" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-382.377, 1000.02)
+position = Vector2(-105.48, 1555.14)
 
 [node name="Fuel9" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(482.447, -2219.53)
+position = Vector2(230.412, -1360.09)
 
 [node name="Fuel10" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-173.541, 1912.21)
+position = Vector2(-324.614, -1274.1)
 
 [node name="Fuel11" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-2.5755, 2106.16)
+position = Vector2(-359.971, 82.9065)
 
 [node name="Fuel12" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(197.141, -1224.32)
+position = Vector2(-340.632, 1326.49)
 
 [node name="Fuel13" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(345.278, 304.826)
+position = Vector2(-318.641, 739.564)
 
 [node name="Fuel14" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-116.683, -483.229)
+position = Vector2(303.214, -1033.16)
 
 [node name="Fuel15" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-197.801, -2043.02)
+position = Vector2(482.333, -2078.24)
 
 [node name="Fuel16" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(279.508, -952.347)
+position = Vector2(-366.968, 1814.95)
 
 [node name="Fuel17" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(408.501, -1953.71)
+position = Vector2(85.9794, 1561.7)
 
 [node name="Fuel18" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(461.159, -2263.55)
+position = Vector2(-488.854, -1546.94)
 
 [node name="Fuel19" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-10.5391, -539.774)
+position = Vector2(-143.27, 1938.55)
 
 [node name="Fuel20" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(424.808, -1380.92)
+position = Vector2(-6.52167, 1543.01)
 
 [node name="Fuel21" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(229.309, -2169.75)
+position = Vector2(190.122, -2398.3)
 
 [node name="Fuel22" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-26.3152, 494.628)
+position = Vector2(420.868, -200.896)
 
 [node name="Fuel23" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(329.624, -2064.14)
+position = Vector2(101.843, -241.825)
 
 [node name="Fuel24" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-18.5168, -39.7061)
+position = Vector2(-115.977, 1274.25)
 
 [node name="Fuel25" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(153.408, 157.874)
+position = Vector2(99.869, 474.231)
 
 [node name="Fuel26" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-53.7704, 1042.86)
+position = Vector2(435.751, 2407.98)
 
 [node name="Fuel27" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(88.586, -995.708)
+position = Vector2(-265.754, -634.239)
 
 [node name="Fuel28" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(459.678, -1484.07)
+position = Vector2(-224.067, -984.5)
 
 [node name="Fuel29" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-410.869, 770.929)
+position = Vector2(-349.174, -1382.39)
 
 [node name="Fuel30" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-144.336, 785.234)
+position = Vector2(168.491, -1185.01)
 
 [node name="Fuel31" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(198.259, 2336.17)
+position = Vector2(162.294, 1740.74)
 
 [node name="Fuel32" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(397.676, 1930.26)
+position = Vector2(476.141, -2109.33)
 
 [node name="Fuel33" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-131.122, -2117.27)
+position = Vector2(472.595, 2456.92)
 
 [node name="Fuel34" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(103.675, -4.76051)
+position = Vector2(455.171, 267.51)
 
 [node name="Fuel35" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-57.6805, -173.769)
+position = Vector2(497.157, -1552.1)
 
 [node name="Fuel36" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(408.472, 1049.89)
+position = Vector2(193.147, 992.562)
 
 [node name="Fuel37" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(198.095, 1798.35)
+position = Vector2(67.4819, 2161.03)
 
 [node name="Fuel38" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(9.67572, 2092.8)
+position = Vector2(212.129, 320.627)
 
 [node name="Fuel39" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-133.771, -1797.52)
+position = Vector2(-134.265, -699.541)
 
 [node name="Fuel40" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-142.275, -743.606)
+position = Vector2(-259.704, -892.126)
 
 [node name="Fuel41" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-445.742, -2284.67)
+position = Vector2(452.91, -965.795)
 
 [node name="Fuel42" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(189.152, -1178.74)
+position = Vector2(-186.582, -949.884)
 
 [node name="Fuel43" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(440.655, -1055.44)
+position = Vector2(4.8916, -2368.32)
 
 [node name="Fuel44" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(54.5316, 2302.43)
+position = Vector2(44.9393, -1993.05)
 
 [node name="Fuel45" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(4.95459, 471.018)
+position = Vector2(407.484, 2126.1)
 
 [node name="Fuel46" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-41.9504, -785.921)
+position = Vector2(-468.256, -2423.4)
 
 [node name="Fuel47" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(332.253, 1349.15)
+position = Vector2(-344.323, -63.4881)
 
 [node name="Fuel48" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(314.974, 1837.33)
+position = Vector2(-468.839, -517.804)
 
 [node name="Fuel49" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(410.613, 740.055)
+position = Vector2(159.753, 308.248)
 
 [node name="Fuel50" parent="Fuels" instance=ExtResource("4_k8f8b")]
-position = Vector2(-347.264, 1428.18)
+position = Vector2(127.223, -2099.22)
 
 [node name="Pickups" type="Node2D" parent="."]
 script = ExtResource("3_qh04p")
+is_paused = false
 spawn_size_height = 2000.0
 
 [node name="Medkit" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(415.041, -953.274)
+position = Vector2(446.152, -792.778)
 
 [node name="Medkit2" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(489.023, 304.118)
+position = Vector2(202.586, 238.363)
 
 [node name="Medkit3" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(93.7673, 622.663)
+position = Vector2(317.476, -211.125)
 
 [node name="Medkit4" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(196.963, 968.61)
+position = Vector2(389.404, 236.794)
 
 [node name="Medkit5" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(253.117, 298.157)
+position = Vector2(461.002, -327.636)
 
 [node name="Medkit6" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(374.568, -828.441)
+position = Vector2(206.521, 917.325)
 
 [node name="Medkit7" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(240.223, 528.576)
+position = Vector2(-239.548, 936.585)
 
 [node name="Medkit8" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(75.8244, -717.28)
+position = Vector2(-125.539, -942.864)
 
 [node name="Medkit9" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(-314.143, 563.383)
+position = Vector2(-215.778, -162.486)
 
 [node name="Medkit10" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(-295.933, -41.5387)
+position = Vector2(-319.698, 363.44)
 
 [node name="Medkit11" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(343.303, 554.446)
+position = Vector2(-243.411, 629.994)
 
 [node name="Medkit12" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(351.955, 653.703)
+position = Vector2(112.711, 169.263)
 
 [node name="Medkit13" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(-469.629, -436.092)
+position = Vector2(-63.9201, 941.225)
 
 [node name="Medkit14" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(-143.367, 532.613)
+position = Vector2(99.8598, -602.742)
 
 [node name="Medkit15" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(95.3525, -772.883)
+position = Vector2(-373.781, 688.541)
 
 [node name="Medkit16" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(-171.315, -241.154)
+position = Vector2(-325.075, 117.009)
 
 [node name="Medkit17" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(399.251, -503.48)
+position = Vector2(-440.637, 427.167)
 
 [node name="Medkit18" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(-82.1834, 298.704)
+position = Vector2(-164.465, -606.591)
 
 [node name="Medkit19" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(-335.956, 368.58)
+position = Vector2(287.379, -691.056)
 
 [node name="Medkit20" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(380.63, -718.675)
+position = Vector2(-131.143, -120.944)
 
 [node name="Medkit21" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(379.338, -834.449)
+position = Vector2(-169.058, 427.997)
 
 [node name="Medkit22" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(-151.53, -572.533)
+position = Vector2(-430.283, -10.4402)
 
 [node name="Medkit23" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(-322.914, 532.435)
+position = Vector2(-157.875, 606.007)
 
 [node name="Medkit24" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(-153.587, 919.44)
+position = Vector2(420.29, -340.747)
 
 [node name="Medkit25" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(400.052, 350.201)
+position = Vector2(144.591, 77.4586)
 
 [node name="Medkit26" parent="Pickups" instance=ExtResource("5_7vc00")]
-position = Vector2(-11.1541, -444.683)
+position = Vector2(267.736, 549.498)
 
 [node name="Shield" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(322.883, -95.8645)
+position = Vector2(-411.296, 448.8)
 
 [node name="Shield2" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(-201.69, -47.8713)
+position = Vector2(450.909, 94.4813)
 
 [node name="Shield3" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(26.0704, -523.744)
+position = Vector2(-114.289, 857.292)
 
 [node name="Shield4" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(196.7, 85.0989)
+position = Vector2(65.1251, -159.065)
 
 [node name="Shield5" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(-266.3, -257.263)
+position = Vector2(117.893, 728.547)
 
 [node name="Shield6" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(215.993, -177.13)
+position = Vector2(-366.597, 753.192)
 
 [node name="Shield7" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(491.218, -409.31)
+position = Vector2(296.769, -398.914)
 
 [node name="Shield8" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(-324.329, 997.72)
+position = Vector2(459.943, 440.8)
 
 [node name="Shield9" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(-281.053, -597.023)
+position = Vector2(-400.742, 40.4948)
 
 [node name="Shield10" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(391.315, 244.803)
+position = Vector2(-191.293, 189.193)
 
 [node name="Shield11" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(-306.775, 75.702)
+position = Vector2(240.794, -775.066)
 
 [node name="Shield12" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(382.994, 400.247)
+position = Vector2(176.298, -793.511)
 
 [node name="Shield13" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(-77.6258, 384.341)
+position = Vector2(466.361, -674.742)
 
 [node name="Shield14" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(-138.22, 954.661)
+position = Vector2(259.16, -378.402)
 
 [node name="Shield15" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(449.617, -187.793)
+position = Vector2(-29.4486, 995.586)
 
 [node name="Shield16" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(-401.165, -923.335)
+position = Vector2(-268.72, -888.438)
 
 [node name="Shield17" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(-434.01, -550.446)
+position = Vector2(468.591, -217.887)
 
 [node name="Shield18" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(342.451, 372.877)
+position = Vector2(399.062, 615.551)
 
 [node name="Shield19" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(-477.907, -581.629)
+position = Vector2(170.373, -68.112)
 
 [node name="Shield20" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(-340.219, -903.408)
+position = Vector2(392.119, 56.3924)
 
 [node name="Shield21" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(90.5831, -654.069)
+position = Vector2(69.928, -640.37)
 
 [node name="Shield22" parent="Pickups" instance=ExtResource("8_ry1g7")]
-position = Vector2(-324.258, -86.0989)
+position = Vector2(274.765, 100.719)
 
 [node name="Stations" type="Node2D" parent="."]
 

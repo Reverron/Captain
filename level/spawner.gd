@@ -1,7 +1,8 @@
-@tool
 extends Node2D
 class_name Spawner
 
+@export var is_paused := true
+@export var speed := 2.0
 @export var spawn_test := false:
 	set = _spawn_test
 
@@ -16,7 +17,7 @@ func _spawn_test(_v: bool):
 	randomize_obj_pos()
 
 func _ready() -> void:
-	is_paused = true
+	is_paused = false
 	get_children_objs()
 	randomize_obj_pos()
 
@@ -37,11 +38,8 @@ func randomize_obj_pos():
 		var rand_y = randf_range(-spawn_size_height / 2, spawn_size_height / 2)
 		o.global_position = global_position + Vector2(rand_x, rand_y)
 
-@export var is_paused := true
-@export var game_speed := 10.0
-
 func move(delta: float) -> void:
 	if is_paused:
 		return
 	
-	global_position.y += game_speed * delta
+	global_position.y += speed * Global.game_speed * delta
