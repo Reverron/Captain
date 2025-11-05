@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dw7xbffokiusi" path="res://components/attack_component.tscn" id="3_ua8cb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edhjt"]
-radius = 14.142136
+radius = 14.1421
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ua8cb"]
-radius = 17.029387
+radius = 17.0294
 
 [node name="Obstacle" instance=ExtResource("1_sp7f0")]
 collision_layer = 4

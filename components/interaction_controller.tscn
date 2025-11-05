@@ -1,16 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://ca72j03t2tr6m"]
 
-[ext_resource type="Script" uid="uid://dukvuw46d7lv0" path="res://player/interaction_controller.gd" id="1_mjreq"]
+[ext_resource type="Script" uid="uid://dukvuw46d7lv0" path="res://components/interaction_controller.gd" id="1_mjreq"]
 [ext_resource type="Texture2D" uid="uid://b240ktacv8prt" path="res://assets/radial.png" id="2_fpiy1"]
 
-[node name="InteractionController" type="Node2D"]
+[node name="InteractionController" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_mjreq")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 7
-collision_mask = 7
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
@@ -30,7 +28,7 @@ vertical_alignment = 1
 
 [node name="InteractProgressBar" type="TextureProgressBar" parent="Label"]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.42352942)
+modulate = Color(1, 1, 1, 0.423529)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

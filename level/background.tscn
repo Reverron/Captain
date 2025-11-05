@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://c26nlcncwew4"]
+[gd_scene load_steps=5 format=3 uid="uid://c26nlcncwew4"]
 
 [ext_resource type="Texture2D" uid="uid://bf4q1u4bfuldb" path="res://assets/background/Space_Stars2.png" id="1_18wmw"]
+[ext_resource type="Shader" uid="uid://bbgopq8da5k5y" path="res://materials/scrolling_background.gdshader" id="1_ua1tw"]
 [ext_resource type="Script" uid="uid://lehxrq0mpi0" path="res://level/background.gd" id="2_ua1tw"]
 
-[node name="Background" type="TextureRect"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_75weh"]
+shader = ExtResource("1_ua1tw")
+shader_parameter/speed = 0.1
+
+[node name="Background" type="CanvasLayer"]
+layer = -1
+script = ExtResource("2_ua1tw")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_75weh")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,5 +23,5 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("1_18wmw")
+expand_mode = 1
 stretch_mode = 1
-script = ExtResource("2_ua1tw")

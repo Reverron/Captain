@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnke1gr0k65og"]
+[gd_scene load_steps=7 format=3 uid="uid://bnke1gr0k65og"]
 
 [ext_resource type="PackedScene" uid="uid://k8inc765efmm" path="res://player/player.tscn" id="1_acesj"]
 [ext_resource type="Texture2D" uid="uid://bt7cqlnsthmow" path="res://player/hp_bar.tres" id="2_gbhii"]
 [ext_resource type="PackedScene" uid="uid://0qvg0nfc8vj" path="res://components/inventory_component.tscn" id="2_prtci"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_prtci"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c6f1t"]
+radius = 19.0263
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbhii"]
 radius = 18.0
@@ -29,10 +32,17 @@ offset_right = 22.0
 offset_bottom = -20.0
 grow_vertical = 2
 
+[node name="InteractionController" parent="." index="3"]
+collision_layer = 2
+
+[node name="CollisionShape2D" parent="InteractionController" index="0"]
+shape = SubResource("CircleShape2D_c6f1t")
+
 [node name="HealthBar" parent="." index="4"]
 texture = ExtResource("2_gbhii")
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("CircleShape2D_gbhii")
 
+[editable path="InteractionController"]
 [editable path="HitboxComponent"]

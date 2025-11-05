@@ -33,13 +33,18 @@ texture = SubResource("AtlasTexture_kgmax")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 scale = Vector2(2.5, 2.5)
 build_mode = 1
-polygon = PackedVector2Array(19.199999, 26.399998, 19.199999, 11.599999, 5.2, -15.599999, 2.3999999, -26.8, -2.3999999, -26.8, -5.2, -15.599999, -19.199999, 11.599999, -19.599998, 26.399998)
+polygon = PackedVector2Array(19.2, 26.4, 19.2, 11.6, 5.2, -15.6, 2.4, -26.8, -2.4, -26.8, -5.2, -15.6, -19.2, 11.6, -19.6, 26.4)
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(0, 5)
 
 [node name="InteractionController" parent="." index="3"]
-can_interact = false
+collision_layer = 8
+
+[node name="HitboxComponent_Area2D#CollisionPolygon2D2" type="CollisionPolygon2D" parent="InteractionController" index="0"]
+scale = Vector2(2.5, 2.5)
+build_mode = 1
+polygon = PackedVector2Array(19.2, 29.6, 23.6, 12.4, 8.4, -16, 5.2, -28.4, -4.4, -28.4, -8, -16, -23.6, 12.4, -19.6, 30)
 
 [node name="InteractionComponent" parent="." index="4" instance=ExtResource("4_kgmax")]
 interact_name = "Captain Ship"
@@ -51,7 +56,7 @@ position = Vector2(0, 2)
 [node name="HitboxComponent_Area2D#CollisionPolygon2D2" type="CollisionPolygon2D" parent="InteractionComponent" index="1"]
 scale = Vector2(2.5, 2.5)
 build_mode = 1
-polygon = PackedVector2Array(19.199999, 29.599998, 23.599998, 12.4, 8.4, -15.999999, 5.2, -28.399998, -4.3999996, -28.399998, -7.9999995, -15.999999, -23.599998, 12.4, -19.599998, 29.999998)
+polygon = PackedVector2Array(19.2, 29.6, 23.6, 12.4, 8.4, -16, 5.2, -28.4, -4.4, -28.4, -8, -16, -23.6, 12.4, -19.6, 30)
 
 [node name="HealthBar" parent="." index="5"]
 anchors_preset = 8
@@ -73,7 +78,8 @@ texture = SubResource("AtlasTexture_umdq8")
 [node name="HitboxComponent_Area2D#CollisionPolygon2D2" type="CollisionPolygon2D" parent="HitboxComponent" index="1"]
 scale = Vector2(2.5, 2.5)
 build_mode = 1
-polygon = PackedVector2Array(19.199999, 26.399998, 19.199999, 11.599999, 5.2, -15.599999, 2.3999999, -26.8, -2.3999999, -26.8, -5.2, -15.599999, -19.199999, 11.599999, -19.599998, 26.399998)
+polygon = PackedVector2Array(19.2, 26.4, 19.2, 11.6, 5.2, -15.6, 2.4, -26.8, -2.4, -26.8, -5.2, -15.6, -19.2, 11.6, -19.6, 26.4)
 
+[editable path="InteractionController"]
 [editable path="InteractionComponent"]
 [editable path="HitboxComponent"]

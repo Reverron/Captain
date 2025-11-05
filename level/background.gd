@@ -1,9 +1,11 @@
-extends TextureRect
+extends CanvasLayer
+class_name Background
 
-var scrolling_speed := 1.0
+var scrolling_speed := 1.0: set = update_scrolling_speed
+@onready var background_texture: TextureRect = $BackgroundTexture
+@onready var shader_material: ShaderMaterial = background_texture.material
 
-func _physics_process(delta: float) -> void:
-	position.y = move_toward(position.y, 0, scrolling_speed * delta)
-
-func update_scrolling_speed(_scale: float):
-	scrolling_speed *= _scale
+func update_scrolling_speed(new_speed: float) -> void:
+	scrolling_speed = new_speed
+	if shader_material:
+		shader_material.set_shader_parameter("speed", scrolling_speed)

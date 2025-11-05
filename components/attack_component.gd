@@ -11,3 +11,4 @@ func _ready() -> void:
 func _on_area_entered(area: Area2D):
 	if area is HitboxComponent:
 		area.apply_damage(self)
+		get_parent().queue_free()

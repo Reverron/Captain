@@ -1,7 +1,6 @@
-extends Node2D
+extends Area2D
 class_name InteractionController
 
-@onready var interact_area: Area2D = $Area2D
 @onready var label: Label = %Label
 @onready var interact_progress_bar: TextureProgressBar = %InteractProgressBar
 
@@ -17,7 +16,7 @@ func _on_interacting(_area: Node) -> void:
 		_area._on_interacted()
 
 func _ready() -> void:
-	interact_area.area_entered.connect(_on_interacting)
+	area_entered.connect(_on_interacting)
 	interact_progress_bar.hide()
 	label.hide()
 
