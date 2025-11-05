@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://dg2lpxirhvole"]
+
+[ext_resource type="Script" uid="uid://dxnea5fnw7tmx" path="res://level/boundary.gd" id="1_1gtuc"]
+[ext_resource type="Texture2D" uid="uid://b8jpxcrm7bhvl" path="res://assets/icon.svg" id="1_qbb0q"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qh04p"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k8f8b"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7vc00"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_klgnm"]
+normal = Vector2(0, 1)
+
+[node name="Boundary" type="Node2D"]
+script = ExtResource("1_1gtuc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.24705882)
+scale = Vector2(8, 1.5)
+texture = ExtResource("1_qbb0q")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-500, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_qh04p")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(500, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_k8f8b")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(0, 100)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_7vc00")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(0, -100)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("WorldBoundaryShape2D_klgnm")

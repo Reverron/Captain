@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c26nlcncwew4"]
+
+[ext_resource type="Texture2D" uid="uid://bf4q1u4bfuldb" path="res://assets/background/Space_Stars2.png" id="1_18wmw"]
+[ext_resource type="Script" uid="uid://lehxrq0mpi0" path="res://level/background.gd" id="2_ua1tw"]
+
+[node name="Background" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_18wmw")
+stretch_mode = 1
+script = ExtResource("2_ua1tw")

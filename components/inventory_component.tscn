@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://0qvg0nfc8vj"]
+
+[ext_resource type="Script" uid="uid://byp2rjkfm7cvs" path="res://components/inventory_component.gd" id="1_6xqhe"]
+[ext_resource type="Script" uid="uid://27x4eb6omqno" path="res://components/hotbar.gd" id="2_putkx"]
+[ext_resource type="PackedScene" uid="uid://dq3logm4i46in" path="res://components/inventory_slot.tscn" id="2_vohru"]
+
+[node name="InventoryComponent" type="PanelContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_right = -17.0
+offset_bottom = 20.0
+grow_horizontal = 2
+script = ExtResource("1_6xqhe")
+
+[node name="Hotbar" type="HBoxContainer" parent="."]
+layout_mode = 2
+script = ExtResource("2_putkx")
+
+[node name="InventorySlot" parent="Hotbar" instance=ExtResource("2_vohru")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Hotbar" instance=ExtResource("2_vohru")]
+layout_mode = 2

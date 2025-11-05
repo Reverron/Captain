@@ -1,0 +1,337 @@
+[gd_scene load_steps=6 format=3 uid="uid://dejkcym2erm1l"]
+
+[ext_resource type="Script" uid="uid://bsimjmtawl0u1" path="res://level/main.gd" id="1_414cb"]
+[ext_resource type="PackedScene" uid="uid://bfcrrry3qqv4i" path="res://objs/obstacle.tscn" id="3_nt2wp"]
+[ext_resource type="Script" uid="uid://62uluyengmmo" path="res://level/spawner.gd" id="3_qh04p"]
+[ext_resource type="PackedScene" uid="uid://b5t6r77gj5aa7" path="res://objs/pickup_items/fuel.tscn" id="4_k8f8b"]
+[ext_resource type="PackedScene" uid="uid://du3txt64l58r3" path="res://objs/pickup_items/medkit.tscn" id="5_7vc00"]
+
+[node name="Main" type="Node2D" groups=["main"]]
+script = ExtResource("1_414cb")
+
+[node name="Obstacles" type="Node2D" parent="."]
+script = ExtResource("3_qh04p")
+
+[node name="Obstacle" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(-36.95021, 1414.0233)
+
+[node name="Obstacle2" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(439.07596, 267.05853)
+
+[node name="Obstacle3" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(169.4008, -1816.2301)
+
+[node name="Obstacle4" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(402.9744, -1314.7878)
+
+[node name="Obstacle5" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(71.60159, -1194.6903)
+
+[node name="Obstacle6" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(-355.56888, 231.19777)
+
+[node name="Obstacle7" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(-14.377062, 1448.6512)
+
+[node name="Obstacle8" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(-174.48897, -1918.815)
+
+[node name="Obstacle9" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(120.67796, 1846.022)
+
+[node name="Obstacle10" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(22.711613, -669.67175)
+
+[node name="Obstacle11" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(443.47778, -1145.6237)
+
+[node name="Obstacle12" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(125.44089, -180.35742)
+
+[node name="Obstacle13" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(315.4733, -28.053938)
+
+[node name="Obstacle14" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(171.93098, -509.91498)
+
+[node name="Obstacle15" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(396.9468, -1109.6818)
+
+[node name="Obstacle16" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(159.57288, 2491.04)
+
+[node name="Obstacle17" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(302.63675, -1440.8112)
+
+[node name="Obstacle18" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(-311.11655, -798.8635)
+
+[node name="Obstacle19" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(-185.44144, 2023.5614)
+
+[node name="Obstacle20" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(327.2102, -2010.7874)
+
+[node name="Obstacle21" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(-248.24023, 1717.8485)
+
+[node name="Obstacle22" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(-469.57684, 356.8047)
+
+[node name="Obstacle23" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(-107.176895, -383.7317)
+
+[node name="Obstacle24" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(449.9655, -1365.6764)
+
+[node name="Obstacle25" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(328.4878, -2018.3134)
+
+[node name="Obstacle26" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(-158.61992, -2298.8545)
+
+[node name="Obstacle27" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(201.18787, -1036.5431)
+
+[node name="Obstacle28" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(468.13168, 2388.7734)
+
+[node name="Obstacle29" parent="Obstacles" instance=ExtResource("3_nt2wp")]
+position = Vector2(62.423046, 1267.1956)
+
+[node name="Fuels" type="Node2D" parent="."]
+script = ExtResource("3_qh04p")
+
+[node name="Fuel" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(199.35397, -452.06894)
+
+[node name="Fuel2" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-410.09717, -1638.9636)
+
+[node name="Fuel3" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(375.7785, 644.974)
+
+[node name="Fuel4" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-63.72001, -2267.966)
+
+[node name="Fuel5" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-59.69747, -422.94193)
+
+[node name="Fuel6" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(337.67932, 1191.9583)
+
+[node name="Fuel7" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(215.47943, -483.85275)
+
+[node name="Fuel8" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-382.75693, 1459.8656)
+
+[node name="Fuel9" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-85.65894, 1415.5449)
+
+[node name="Fuel10" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-380.10083, 2379.1882)
+
+[node name="Fuel11" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(469.9257, 763.578)
+
+[node name="Fuel12" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-356.37698, 1889.5549)
+
+[node name="Fuel13" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-456.20044, -817.85065)
+
+[node name="Fuel14" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(67.787796, -587.40845)
+
+[node name="Fuel15" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-16.414179, -882.4329)
+
+[node name="Fuel16" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(219.25714, 1766.4877)
+
+[node name="Fuel17" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-365.6131, -478.7698)
+
+[node name="Fuel18" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-373.32654, -581.63855)
+
+[node name="Fuel19" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(11.467622, -839.26373)
+
+[node name="Fuel20" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(409.37643, 1810.5562)
+
+[node name="Fuel21" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-75.27472, -451.3323)
+
+[node name="Fuel22" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-117.12168, -2402.1316)
+
+[node name="Fuel23" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(255.88887, 646.0909)
+
+[node name="Fuel24" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-183.36877, -1781.4437)
+
+[node name="Fuel25" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(123.66933, 383.08978)
+
+[node name="Fuel26" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(161.31667, 1219.3651)
+
+[node name="Fuel27" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-220.85591, 1742.9308)
+
+[node name="Fuel28" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-93.42052, 1359.2192)
+
+[node name="Fuel29" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(39.250957, -293.3916)
+
+[node name="Fuel30" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(51.38417, -1916.6505)
+
+[node name="Fuel31" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(445.6556, -1378.9854)
+
+[node name="Fuel32" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-160.34137, 2428.3052)
+
+[node name="Fuel33" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(2.9298928, -1027.567)
+
+[node name="Fuel34" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(133.36838, 608.1636)
+
+[node name="Fuel35" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(415.91046, -1154.8601)
+
+[node name="Fuel36" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(499.42218, 1319.5009)
+
+[node name="Fuel37" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(356.1949, 2069.3054)
+
+[node name="Fuel38" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-10.115756, 100.0255)
+
+[node name="Fuel39" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(490.8237, -2451.69)
+
+[node name="Fuel40" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(64.28957, -1164.9637)
+
+[node name="Fuel41" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-117.99391, -886.63995)
+
+[node name="Fuel42" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-447.11084, -1302.781)
+
+[node name="Fuel43" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-241.60031, -1674.1815)
+
+[node name="Fuel44" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(373.49377, 1779.7443)
+
+[node name="Fuel45" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(496.87485, -85.158356)
+
+[node name="Fuel46" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-232.34618, 418.0817)
+
+[node name="Fuel47" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-358.93805, 350.08456)
+
+[node name="Fuel48" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(98.54634, -769.9476)
+
+[node name="Fuel49" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-498.6599, -612.4127)
+
+[node name="Fuel50" parent="Fuels" instance=ExtResource("4_k8f8b")]
+position = Vector2(-297.661, 697.839)
+
+[node name="Pickups" type="Node2D" parent="."]
+script = ExtResource("3_qh04p")
+spawn_size_height = 2000.0
+
+[node name="Medkit" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(67.4133, 762.83453)
+
+[node name="Medkit2" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(477.62015, 738.4229)
+
+[node name="Medkit3" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(371.4474, -918.94806)
+
+[node name="Medkit4" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(146.48303, -360.23514)
+
+[node name="Medkit5" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(-436.79147, -1000.6648)
+
+[node name="Medkit6" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(399.37744, -158.44089)
+
+[node name="Medkit7" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(197.16077, 1034.3993)
+
+[node name="Medkit8" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(-109.762764, -1779.0262)
+
+[node name="Medkit9" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(148.40569, -1432.8752)
+
+[node name="Medkit10" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(318.67453, 146.93478)
+
+[node name="Medkit11" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(-190.33015, -2349.5825)
+
+[node name="Medkit12" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(-60.019817, 1968.1252)
+
+[node name="Medkit13" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(-90.885796, -2058.7644)
+
+[node name="Medkit14" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(67.4133, 762.83453)
+
+[node name="Medkit15" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(477.62015, 738.4229)
+
+[node name="Medkit16" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(371.4474, -918.94806)
+
+[node name="Medkit17" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(146.48303, -360.23514)
+
+[node name="Medkit18" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(-436.79147, -1000.6648)
+
+[node name="Medkit19" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(399.37744, -158.44089)
+
+[node name="Medkit20" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(197.16077, 1034.3993)
+
+[node name="Medkit21" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(-109.762764, -1779.0262)
+
+[node name="Medkit22" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(148.40569, -1432.8752)
+
+[node name="Medkit23" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(318.67453, 146.93478)
+
+[node name="Medkit24" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(-190.33015, -2349.5825)
+
+[node name="Medkit25" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(-60.019817, 1968.1252)
+
+[node name="Medkit26" parent="Pickups" instance=ExtResource("5_7vc00")]
+position = Vector2(-90.885796, -2058.7644)
+
+[node name="Stations" type="Node2D" parent="."]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnke1gr0k65og"]
+
+[ext_resource type="PackedScene" uid="uid://k8inc765efmm" path="res://player/player.tscn" id="1_acesj"]
+[ext_resource type="Texture2D" uid="uid://bt7cqlnsthmow" path="res://player/hp_bar.tres" id="2_gbhii"]
+[ext_resource type="PackedScene" uid="uid://0qvg0nfc8vj" path="res://components/inventory_component.tscn" id="2_prtci"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_prtci"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gbhii"]
+radius = 18.0
+
+[node name="PlayerCrew" instance=ExtResource("1_acesj")]
+input_left = "left2"
+input_right = "right2"
+input_up = "up2"
+input_down = "down2"
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_prtci")
+
+[node name="InventoryComponent" parent="." index="2" instance=ExtResource("2_prtci")]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -40.0
+offset_right = 22.0
+offset_bottom = -20.0
+grow_vertical = 2
+
+[node name="HealthBar" parent="." index="4"]
+texture = ExtResource("2_gbhii")
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_gbhii")
+
+[editable path="HitboxComponent"]

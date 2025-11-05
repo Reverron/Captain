@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://dk0n86nx6c871"]
+
+[ext_resource type="PackedScene" uid="uid://dbhkauj43clvm" path="res://level/split_screen.tscn" id="1_mx2rf"]
+[ext_resource type="Script" uid="uid://3c8lk3o1he7f" path="res://level/root.gd" id="1_nyff5"]
+[ext_resource type="PackedScene" uid="uid://dejkcym2erm1l" path="res://level/main.tscn" id="1_urc1q"]
+[ext_resource type="PackedScene" uid="uid://b8883o2nix12n" path="res://level/camera.tscn" id="2_3hbfx"]
+[ext_resource type="Script" uid="uid://cjn2sufltatvv" path="res://util/windows_manager.gd" id="3_j1rh4"]
+[ext_resource type="PackedScene" uid="uid://631pf63y7wqo" path="res://player/player_captain.tscn" id="5_17qf6"]
+[ext_resource type="PackedScene" uid="uid://bnke1gr0k65og" path="res://player/player_crew.tscn" id="6_17qf6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17qf6"]
+load_path = "res://.godot/imported/energy.png-d31ae10deb2f267a25814b3eac80d643.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkfj7"]
+atlas = SubResource("CompressedTexture2D_17qf6")
+region = Rect2(0, 0, 48, 48)
+
+[node name="Root" type="Node" groups=["root"]]
+script = ExtResource("1_nyff5")
+
+[node name="WindowsManager" type="HBoxContainer" parent="." node_paths=PackedStringArray("_MainSubWindow", "_SubWindow1", "_SubWindow2")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_j1rh4")
+_MainSubWindow = NodePath("Screen_Captain/SubViewport/Window")
+_SubWindow1 = NodePath("SplitScreen/SubViewport/Window")
+_SubWindow2 = NodePath("SplitScreen2/SubViewport/Window")
+
+[node name="SplitScreen" parent="WindowsManager" instance=ExtResource("1_mx2rf")]
+layout_mode = 2
+
+[node name="Window" type="Window" parent="WindowsManager/SplitScreen/SubViewport" index="1"]
+oversampling_override = 1.0
+position = Vector2i(0, 300)
+size = Vector2i(500, 500)
+
+[node name="Camera" parent="WindowsManager/SplitScreen/SubViewport/Window" node_paths=PackedStringArray("targets") instance=ExtResource("2_3hbfx")]
+targets = [NodePath("../../../../Screen_Captain/SubViewport/Window/PlayerCaptain"), NodePath("../PlayerCrew_1")]
+
+[node name="PlayerCrew_1" parent="WindowsManager/SplitScreen/SubViewport/Window" instance=ExtResource("6_17qf6")]
+position = Vector2(-150, 100)
+
+[node name="Screen_Captain" parent="WindowsManager" instance=ExtResource("1_mx2rf")]
+layout_mode = 2
+
+[node name="Window" type="Window" parent="WindowsManager/Screen_Captain/SubViewport" index="1"]
+oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(850, 950)
+
+[node name="Main" parent="WindowsManager/Screen_Captain/SubViewport/Window" instance=ExtResource("1_urc1q")]
+
+[node name="Camera" parent="WindowsManager/Screen_Captain/SubViewport/Window" node_paths=PackedStringArray("targets") instance=ExtResource("2_3hbfx")]
+targets = [NodePath("../PlayerCaptain")]
+max_zoom = 0.8
+
+[node name="PlayerCaptain" parent="WindowsManager/Screen_Captain/SubViewport/Window" instance=ExtResource("5_17qf6")]
+position = Vector2(-50, 150)
+
+[node name="SplitScreen2" parent="WindowsManager" instance=ExtResource("1_mx2rf")]
+layout_mode = 2
+
+[node name="Window" type="Window" parent="WindowsManager/SplitScreen2/SubViewport" index="1"]
+oversampling_override = 1.0
+position = Vector2i(1400, 300)
+size = Vector2i(500, 500)
+
+[node name="Camera" parent="WindowsManager/SplitScreen2/SubViewport/Window" node_paths=PackedStringArray("targets") instance=ExtResource("2_3hbfx")]
+targets = [NodePath("../../../../Screen_Captain/SubViewport/Window/PlayerCaptain"), NodePath("../PlayerCrew_2")]
+
+[node name="PlayerCrew_2" parent="WindowsManager/SplitScreen2/SubViewport/Window" instance=ExtResource("6_17qf6")]
+position = Vector2(150, 100)
+input_left = "left1"
+input_right = "right1"
+input_up = "up1"
+input_down = "down1"
+
+[node name="HealthBar" parent="WindowsManager/SplitScreen2/SubViewport/Window/PlayerCrew_2" index="4"]
+texture = SubResource("AtlasTexture_jkfj7")
+
+[editable path="WindowsManager/SplitScreen"]
+[editable path="WindowsManager/Screen_Captain"]
+[editable path="WindowsManager/SplitScreen2"]
+[editable path="WindowsManager/SplitScreen2/SubViewport/Window/PlayerCrew_2"]
+[editable path="WindowsManager/SplitScreen2/SubViewport/Window/PlayerCrew_2/HitboxComponent"]

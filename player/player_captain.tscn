@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://631pf63y7wqo"]
+
+[ext_resource type="PackedScene" uid="uid://k8inc765efmm" path="res://player/player.tscn" id="1_6ae7q"]
+[ext_resource type="PackedScene" uid="uid://dg2lpxirhvole" path="res://level/boundary.tscn" id="2_biafw"]
+[ext_resource type="Texture2D" uid="uid://c2hyng885tdmu" path="res://assets/sprite sheet.png" id="2_umdq8"]
+[ext_resource type="PackedScene" uid="uid://c7igustukqvma" path="res://components/interaction_component.tscn" id="4_kgmax"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgmax"]
+atlas = ExtResource("2_umdq8")
+region = Rect2(0, 0, 40, 56)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_biafw"]
+load_path = "res://.godot/imported/energy.png-d31ae10deb2f267a25814b3eac80d643.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umdq8"]
+atlas = SubResource("CompressedTexture2D_biafw")
+region = Rect2(0, 0, 48, 48)
+
+[node name="PlayerCaptain" node_paths=PackedStringArray("interaction") instance=ExtResource("1_6ae7q")]
+input_left = "left3"
+input_right = "right3"
+input_up = "up3"
+input_down = "down3"
+is_captain = true
+move_speed = 80.0
+friction = 0.8
+interaction = NodePath("InteractionComponent")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(2.5, 2.5)
+texture = SubResource("AtlasTexture_kgmax")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+scale = Vector2(2.5, 2.5)
+build_mode = 1
+polygon = PackedVector2Array(19.199999, 26.399998, 19.199999, 11.599999, 5.2, -15.599999, 2.3999999, -26.8, -2.3999999, -26.8, -5.2, -15.599999, -19.199999, 11.599999, -19.599998, 26.399998)
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, 5)
+
+[node name="InteractionController" parent="." index="3"]
+can_interact = false
+
+[node name="InteractionComponent" parent="." index="4" instance=ExtResource("4_kgmax")]
+interact_name = "Captain Ship"
+interact_duration = 1.5
+
+[node name="CollisionShape2D" parent="InteractionComponent" index="0"]
+position = Vector2(0, 2)
+
+[node name="HitboxComponent_Area2D#CollisionPolygon2D2" type="CollisionPolygon2D" parent="InteractionComponent" index="1"]
+scale = Vector2(2.5, 2.5)
+build_mode = 1
+polygon = PackedVector2Array(19.199999, 29.599998, 23.599998, 12.4, 8.4, -15.999999, 5.2, -28.399998, -4.3999996, -28.399998, -7.9999995, -15.999999, -23.599998, 12.4, -19.599998, 29.999998)
+
+[node name="HealthBar" parent="." index="5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = 50.0
+offset_right = 30.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(30, 30)
+texture = SubResource("AtlasTexture_umdq8")
+
+[node name="Boundary" parent="." index="6" instance=ExtResource("2_biafw")]
+
+[node name="HitboxComponent_Area2D#CollisionPolygon2D2" type="CollisionPolygon2D" parent="HitboxComponent" index="1"]
+scale = Vector2(2.5, 2.5)
+build_mode = 1
+polygon = PackedVector2Array(19.199999, 26.399998, 19.199999, 11.599999, 5.2, -15.599999, 2.3999999, -26.8, -2.3999999, -26.8, -5.2, -15.599999, -19.199999, 11.599999, -19.599998, 26.399998)
+
+[editable path="InteractionComponent"]
+[editable path="HitboxComponent"]

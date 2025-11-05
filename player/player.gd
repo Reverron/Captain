@@ -1,0 +1,95 @@
+extends CharacterBody2D
+class_name Player
+
+## --- Controls ---
+@export var input_left := "left1"
+@export var input_right := "right1"
+@export var input_up := "up1"
+@export var input_down := "down1"
+
+## --- Attributes ---
+@export var is_captain: bool = false
+@export var move_speed: float = 100.0
+@export var friction: float = 0.99
+
+@export var rotation_threshold: float = 0.1
+@export var rotation_smoothness: float = 8.0
+
+## --- Stun / Knockback ---
+var is_stunned: bool = false
+var stun_timer: float = 0.0
+var knockback_velocity: Vector2 = Vector2.ZERO
+
+## --- Interaction ---
+@onready var interaction_controller : InteractionController = $InteractionController
+@export var interaction : InteractionComponent
+
+func _ready() -> void:
+	if is_captain and interaction != null:
+		interaction.interact = Callable(self, "_receive_items")
+
+func _physics_process(delta: float) -> void:
+	_process_knockback(delta)
+	_process_movement(delta)
+	_process_rotation(delta)
+
+## --- Input ---
+func _get_move_input() -> Vector2:
+	var h_dir := Input.get_axis(input_left, input_right)
+	var v_dir := Input.get_axis(input_up, input_down)
+	return Vector2(h_dir, v_dir).normalized()
+
+func _process_movement(delta: float) -> void:
+	if is_stunned:
+		velocity = knockback_velocity
+		velocity *= friction
+		move_and_slide()
+		return
+
+	var move_input := _get_move_input()
+
+	if not is_captain:
+		velocity = move_input * move_speed
+	else:
+		# captain moves horizontally only
+		velocity.x = move_input.x * move_speed
+		velocity.y = move_toward(velocity.y, 0, move_speed * delta)
+		
+	velocity *= friction
+	move_and_slide()
+
+func _process_rotation(delta: float) -> void:
+	if is_captain || is_stunned: return
+	if _get_move_input().length() > rotation_threshold:
+		var target_angle := velocity.angle() + deg_to_rad(90)
+		rotation = lerp_angle(rotation, target_angle, rotation_smoothness * delta)
+
+func _process_knockback(delta: float):
+	if not is_captain and is_stunned:
+		stun_timer -= delta
+		if stun_timer <= 0.0:
+			is_stunned = false
+			knockback_velocity = Vector2.ZERO
+
+func apply_knockback(direction: Vector2, strength: float, duration: float) -> void:
+	if is_captain: return
+	is_stunned = true
+	stun_timer = duration
+	knockback_velocity = direction.normalized() * strength
+
+func _receive_items(interactor: Node):
+	if interactor.has_node("InventoryComponent"):
+		var inv = interactor.get_node("InventoryComponent") as InventoryComponent
+		inv.item_delivered.connect(_on_item_delivered)
+		inv.deliver_inventory()
+		inv.item_delivered.disconnect(_on_item_delivered)
+
+func _on_item_delivered(item: ItemData, count: int):
+	print("Captain received:", item.item_name, "x", count)
+	match item.item_type:
+		item.ITEM_TYPE.FUEL:
+			Global.add_fuel(item.value * count)
+		item.ITEM_TYPE.HEAL:
+			Global.add_health(item.value * count)
+		item.ITEM_TYPE.SHIELD:
+			Global.add_shield(item.value * count)
