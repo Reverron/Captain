@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dk0n86nx6c871"]
+[gd_scene load_steps=9 format=3 uid="uid://dk0n86nx6c871"]
 
-[ext_resource type="PackedScene" uid="uid://dbhkauj43clvm" path="res://level/split_screen.tscn" id="1_mx2rf"]
 [ext_resource type="Script" uid="uid://3c8lk3o1he7f" path="res://level/root.gd" id="1_nyff5"]
 [ext_resource type="PackedScene" uid="uid://dejkcym2erm1l" path="res://level/main.tscn" id="1_urc1q"]
 [ext_resource type="PackedScene" uid="uid://b8883o2nix12n" path="res://level/camera.tscn" id="2_3hbfx"]
+[ext_resource type="PackedScene" uid="uid://c26nlcncwew4" path="res://level/background.tscn" id="3_17qf6"]
 [ext_resource type="Script" uid="uid://cjn2sufltatvv" path="res://util/windows_manager.gd" id="3_j1rh4"]
-[ext_resource type="PackedScene" uid="uid://631pf63y7wqo" path="res://player/player_captain.tscn" id="5_17qf6"]
 [ext_resource type="PackedScene" uid="uid://bnke1gr0k65og" path="res://player/player_crew.tscn" id="6_17qf6"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17qf6"]
@@ -18,68 +17,381 @@ region = Rect2(0, 0, 48, 48)
 [node name="Root" type="Node" groups=["root"]]
 script = ExtResource("1_nyff5")
 
-[node name="WindowsManager" type="HBoxContainer" parent="." node_paths=PackedStringArray("_MainSubWindow", "_SubWindow1", "_SubWindow2")]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="WindowsManager" type="Node" parent="." node_paths=PackedStringArray("_MainSubWindow", "_SubWindow1", "_SubWindow2")]
 script = ExtResource("3_j1rh4")
-_MainSubWindow = NodePath("Screen_Captain/SubViewport/Window")
-_SubWindow1 = NodePath("SplitScreen/SubViewport/Window")
-_SubWindow2 = NodePath("SplitScreen2/SubViewport/Window")
+_MainSubWindow = NodePath("MainWindow")
+_SubWindow1 = NodePath("Window1")
+_SubWindow2 = NodePath("Window2")
 
-[node name="SplitScreen" parent="WindowsManager" instance=ExtResource("1_mx2rf")]
-layout_mode = 2
-
-[node name="Window" type="Window" parent="WindowsManager/SplitScreen/SubViewport" index="1"]
-oversampling_override = 1.0
-position = Vector2i(0, 300)
-size = Vector2i(500, 500)
-
-[node name="Camera" parent="WindowsManager/SplitScreen/SubViewport/Window" node_paths=PackedStringArray("targets") instance=ExtResource("2_3hbfx")]
-targets = [NodePath("../../../../Screen_Captain/SubViewport/Window/PlayerCaptain"), NodePath("../PlayerCrew_1")]
-
-[node name="PlayerCrew_1" parent="WindowsManager/SplitScreen/SubViewport/Window" instance=ExtResource("6_17qf6")]
-position = Vector2(-150, 100)
-
-[node name="Screen_Captain" parent="WindowsManager" instance=ExtResource("1_mx2rf")]
-layout_mode = 2
-
-[node name="Window" type="Window" parent="WindowsManager/Screen_Captain/SubViewport" index="1"]
+[node name="MainWindow" type="Window" parent="WindowsManager"]
 oversampling_override = 1.0
 initial_position = 2
 size = Vector2i(850, 950)
 
-[node name="Main" parent="WindowsManager/Screen_Captain/SubViewport/Window" instance=ExtResource("1_urc1q")]
+[node name="Main" parent="WindowsManager/MainWindow" instance=ExtResource("1_urc1q")]
 
-[node name="Camera" parent="WindowsManager/Screen_Captain/SubViewport/Window" node_paths=PackedStringArray("targets") instance=ExtResource("2_3hbfx")]
-targets = [NodePath("../PlayerCaptain")]
-max_zoom = 0.8
+[node name="Obstacle" parent="WindowsManager/MainWindow/Main/Obstacles" index="0"]
+position = Vector2(-117.27484, 784.0216)
 
-[node name="PlayerCaptain" parent="WindowsManager/Screen_Captain/SubViewport/Window" instance=ExtResource("5_17qf6")]
-position = Vector2(-50, 150)
+[node name="Obstacle2" parent="WindowsManager/MainWindow/Main/Obstacles" index="1"]
+position = Vector2(349.8225, 2388.184)
 
-[node name="SplitScreen2" parent="WindowsManager" instance=ExtResource("1_mx2rf")]
-layout_mode = 2
+[node name="Obstacle3" parent="WindowsManager/MainWindow/Main/Obstacles" index="2"]
+position = Vector2(-382.44577, -2155.893)
 
-[node name="Window" type="Window" parent="WindowsManager/SplitScreen2/SubViewport" index="1"]
+[node name="Obstacle4" parent="WindowsManager/MainWindow/Main/Obstacles" index="3"]
+position = Vector2(-50.904785, -264.38745)
+
+[node name="Obstacle5" parent="WindowsManager/MainWindow/Main/Obstacles" index="4"]
+position = Vector2(437.0866, 1388.6241)
+
+[node name="Obstacle6" parent="WindowsManager/MainWindow/Main/Obstacles" index="5"]
+position = Vector2(138.39539, 2189.8127)
+
+[node name="Obstacle7" parent="WindowsManager/MainWindow/Main/Obstacles" index="6"]
+position = Vector2(-438.0185, -682.8446)
+
+[node name="Obstacle8" parent="WindowsManager/MainWindow/Main/Obstacles" index="7"]
+position = Vector2(-137.09717, -653.40125)
+
+[node name="Obstacle9" parent="WindowsManager/MainWindow/Main/Obstacles" index="8"]
+position = Vector2(94.450806, 1550.3856)
+
+[node name="Obstacle10" parent="WindowsManager/MainWindow/Main/Obstacles" index="9"]
+position = Vector2(366.8003, 1431.7593)
+
+[node name="Obstacle11" parent="WindowsManager/MainWindow/Main/Obstacles" index="10"]
+position = Vector2(393.1375, 2231.1895)
+
+[node name="Obstacle12" parent="WindowsManager/MainWindow/Main/Obstacles" index="11"]
+position = Vector2(-149.97131, -911.90247)
+
+[node name="Obstacle13" parent="WindowsManager/MainWindow/Main/Obstacles" index="12"]
+position = Vector2(-342.5582, 298.5963)
+
+[node name="Obstacle14" parent="WindowsManager/MainWindow/Main/Obstacles" index="13"]
+position = Vector2(20.990356, -2385.3123)
+
+[node name="Obstacle15" parent="WindowsManager/MainWindow/Main/Obstacles" index="14"]
+position = Vector2(171.1709, 1885.4622)
+
+[node name="Obstacle16" parent="WindowsManager/MainWindow/Main/Obstacles" index="15"]
+position = Vector2(-11.475098, 1474.4971)
+
+[node name="Obstacle17" parent="WindowsManager/MainWindow/Main/Obstacles" index="16"]
+position = Vector2(-405.4895, -2050.6536)
+
+[node name="Obstacle18" parent="WindowsManager/MainWindow/Main/Obstacles" index="17"]
+position = Vector2(-202.14395, -1240.1489)
+
+[node name="Obstacle19" parent="WindowsManager/MainWindow/Main/Obstacles" index="18"]
+position = Vector2(-444.26965, 1720.2739)
+
+[node name="Obstacle20" parent="WindowsManager/MainWindow/Main/Obstacles" index="19"]
+position = Vector2(-484.3591, 391.29395)
+
+[node name="Obstacle21" parent="WindowsManager/MainWindow/Main/Obstacles" index="20"]
+position = Vector2(72.46582, -1316.2196)
+
+[node name="Obstacle22" parent="WindowsManager/MainWindow/Main/Obstacles" index="21"]
+position = Vector2(-409.3836, -1698.8395)
+
+[node name="Obstacle23" parent="WindowsManager/MainWindow/Main/Obstacles" index="22"]
+position = Vector2(390.8523, 452.40585)
+
+[node name="Obstacle24" parent="WindowsManager/MainWindow/Main/Obstacles" index="23"]
+position = Vector2(216.02429, 1301.3735)
+
+[node name="Obstacle25" parent="WindowsManager/MainWindow/Main/Obstacles" index="24"]
+position = Vector2(-393.49576, -1488.744)
+
+[node name="Obstacle26" parent="WindowsManager/MainWindow/Main/Obstacles" index="25"]
+position = Vector2(-240.2652, 827.9206)
+
+[node name="Obstacle27" parent="WindowsManager/MainWindow/Main/Obstacles" index="26"]
+position = Vector2(-29.725647, 151.5231)
+
+[node name="Obstacle28" parent="WindowsManager/MainWindow/Main/Obstacles" index="27"]
+position = Vector2(456.77673, -1002.4008)
+
+[node name="Obstacle29" parent="WindowsManager/MainWindow/Main/Obstacles" index="28"]
+position = Vector2(-171.9527, 2245.6787)
+
+[node name="Fuel" parent="WindowsManager/MainWindow/Main/Fuels" index="0"]
+position = Vector2(396.84436, 249.13144)
+
+[node name="Fuel2" parent="WindowsManager/MainWindow/Main/Fuels" index="1"]
+position = Vector2(-6.3380737, -229.79404)
+
+[node name="Fuel3" parent="WindowsManager/MainWindow/Main/Fuels" index="2"]
+position = Vector2(379.47168, -2338.1519)
+
+[node name="Fuel4" parent="WindowsManager/MainWindow/Main/Fuels" index="3"]
+position = Vector2(166.46613, -2329.6248)
+
+[node name="Fuel5" parent="WindowsManager/MainWindow/Main/Fuels" index="4"]
+position = Vector2(386.62903, 1706.925)
+
+[node name="Fuel6" parent="WindowsManager/MainWindow/Main/Fuels" index="5"]
+position = Vector2(-249.67432, -2004.4055)
+
+[node name="Fuel7" parent="WindowsManager/MainWindow/Main/Fuels" index="6"]
+position = Vector2(-373.6894, 1362.7311)
+
+[node name="Fuel8" parent="WindowsManager/MainWindow/Main/Fuels" index="7"]
+position = Vector2(224.53473, 937.9794)
+
+[node name="Fuel9" parent="WindowsManager/MainWindow/Main/Fuels" index="8"]
+position = Vector2(337.7599, -1544.7084)
+
+[node name="Fuel10" parent="WindowsManager/MainWindow/Main/Fuels" index="9"]
+position = Vector2(59.842163, -427.51526)
+
+[node name="Fuel11" parent="WindowsManager/MainWindow/Main/Fuels" index="10"]
+position = Vector2(-87.194214, 2305.3784)
+
+[node name="Fuel12" parent="WindowsManager/MainWindow/Main/Fuels" index="11"]
+position = Vector2(246.75146, -644.6847)
+
+[node name="Fuel13" parent="WindowsManager/MainWindow/Main/Fuels" index="12"]
+position = Vector2(-79.73251, -1131.5297)
+
+[node name="Fuel14" parent="WindowsManager/MainWindow/Main/Fuels" index="13"]
+position = Vector2(-335.60028, -2079.4417)
+
+[node name="Fuel15" parent="WindowsManager/MainWindow/Main/Fuels" index="14"]
+position = Vector2(74.73004, -2079.6704)
+
+[node name="Fuel16" parent="WindowsManager/MainWindow/Main/Fuels" index="15"]
+position = Vector2(371.45154, -1025.7122)
+
+[node name="Fuel17" parent="WindowsManager/MainWindow/Main/Fuels" index="16"]
+position = Vector2(116.8186, 1338.3607)
+
+[node name="Fuel18" parent="WindowsManager/MainWindow/Main/Fuels" index="17"]
+position = Vector2(173.02167, -2340.1597)
+
+[node name="Fuel19" parent="WindowsManager/MainWindow/Main/Fuels" index="18"]
+position = Vector2(377.5462, 162.21313)
+
+[node name="Fuel20" parent="WindowsManager/MainWindow/Main/Fuels" index="19"]
+position = Vector2(21.313782, 1577.9594)
+
+[node name="Fuel21" parent="WindowsManager/MainWindow/Main/Fuels" index="20"]
+position = Vector2(-269.45905, 1895.6389)
+
+[node name="Fuel22" parent="WindowsManager/MainWindow/Main/Fuels" index="21"]
+position = Vector2(-139.2969, -1137.5594)
+
+[node name="Fuel23" parent="WindowsManager/MainWindow/Main/Fuels" index="22"]
+position = Vector2(428.28064, -2090.6409)
+
+[node name="Fuel24" parent="WindowsManager/MainWindow/Main/Fuels" index="23"]
+position = Vector2(115.75769, 901.9295)
+
+[node name="Fuel25" parent="WindowsManager/MainWindow/Main/Fuels" index="24"]
+position = Vector2(-219.35046, 639.353)
+
+[node name="Fuel26" parent="WindowsManager/MainWindow/Main/Fuels" index="25"]
+position = Vector2(-497.1365, 2225.312)
+
+[node name="Fuel27" parent="WindowsManager/MainWindow/Main/Fuels" index="26"]
+position = Vector2(50.6156, -2042.3091)
+
+[node name="Fuel28" parent="WindowsManager/MainWindow/Main/Fuels" index="27"]
+position = Vector2(296.74854, -91.84765)
+
+[node name="Fuel29" parent="WindowsManager/MainWindow/Main/Fuels" index="28"]
+position = Vector2(-62.075928, 53.746803)
+
+[node name="Fuel30" parent="WindowsManager/MainWindow/Main/Fuels" index="29"]
+position = Vector2(307.49066, 256.95648)
+
+[node name="Fuel31" parent="WindowsManager/MainWindow/Main/Fuels" index="30"]
+position = Vector2(260.36646, 2313.3774)
+
+[node name="Fuel32" parent="WindowsManager/MainWindow/Main/Fuels" index="31"]
+position = Vector2(-299.4436, -881.2451)
+
+[node name="Fuel33" parent="WindowsManager/MainWindow/Main/Fuels" index="32"]
+position = Vector2(201.54639, 163.61626)
+
+[node name="Fuel34" parent="WindowsManager/MainWindow/Main/Fuels" index="33"]
+position = Vector2(141.34723, 198.71677)
+
+[node name="Fuel35" parent="WindowsManager/MainWindow/Main/Fuels" index="34"]
+position = Vector2(-184.1336, 972.8731)
+
+[node name="Fuel36" parent="WindowsManager/MainWindow/Main/Fuels" index="35"]
+position = Vector2(342.1754, 1107.7578)
+
+[node name="Fuel37" parent="WindowsManager/MainWindow/Main/Fuels" index="36"]
+position = Vector2(-332.79803, -23.770992)
+
+[node name="Fuel38" parent="WindowsManager/MainWindow/Main/Fuels" index="37"]
+position = Vector2(-52.77191, 1096.171)
+
+[node name="Fuel39" parent="WindowsManager/MainWindow/Main/Fuels" index="38"]
+position = Vector2(396.4049, -2219.2876)
+
+[node name="Fuel40" parent="WindowsManager/MainWindow/Main/Fuels" index="39"]
+position = Vector2(-14.446533, 80.19121)
+
+[node name="Fuel41" parent="WindowsManager/MainWindow/Main/Fuels" index="40"]
+position = Vector2(311.9427, 869.7835)
+
+[node name="Fuel42" parent="WindowsManager/MainWindow/Main/Fuels" index="41"]
+position = Vector2(43.491272, -689.8131)
+
+[node name="Fuel43" parent="WindowsManager/MainWindow/Main/Fuels" index="42"]
+position = Vector2(-130.6145, -889.27295)
+
+[node name="Fuel44" parent="WindowsManager/MainWindow/Main/Fuels" index="43"]
+position = Vector2(-137.6275, -330.87463)
+
+[node name="Fuel45" parent="WindowsManager/MainWindow/Main/Fuels" index="44"]
+position = Vector2(-379.78754, 1384.8892)
+
+[node name="Fuel46" parent="WindowsManager/MainWindow/Main/Fuels" index="45"]
+position = Vector2(-101.59967, 2042.6582)
+
+[node name="Fuel47" parent="WindowsManager/MainWindow/Main/Fuels" index="46"]
+position = Vector2(50.54248, -1738.9528)
+
+[node name="Fuel48" parent="WindowsManager/MainWindow/Main/Fuels" index="47"]
+position = Vector2(416.8142, 1944.7598)
+
+[node name="Fuel49" parent="WindowsManager/MainWindow/Main/Fuels" index="48"]
+position = Vector2(-332.13638, -952.2642)
+
+[node name="Fuel50" parent="WindowsManager/MainWindow/Main/Fuels" index="49"]
+position = Vector2(474.0144, -1992.562)
+
+[node name="Medkit" parent="WindowsManager/MainWindow/Main/Pickups" index="0"]
+position = Vector2(-397.0699, 650.6439)
+
+[node name="Medkit2" parent="WindowsManager/MainWindow/Main/Pickups" index="1"]
+position = Vector2(341.38647, 862.68933)
+
+[node name="Medkit3" parent="WindowsManager/MainWindow/Main/Pickups" index="2"]
+position = Vector2(-263.74066, -617.9736)
+
+[node name="Medkit4" parent="WindowsManager/MainWindow/Main/Pickups" index="3"]
+position = Vector2(193.5769, -952.1136)
+
+[node name="Medkit5" parent="WindowsManager/MainWindow/Main/Pickups" index="4"]
+position = Vector2(328.38837, -301.91397)
+
+[node name="Medkit6" parent="WindowsManager/MainWindow/Main/Pickups" index="5"]
+position = Vector2(411.38245, 912.5576)
+
+[node name="Medkit7" parent="WindowsManager/MainWindow/Main/Pickups" index="6"]
+position = Vector2(-307.44043, -57.42929)
+
+[node name="Medkit8" parent="WindowsManager/MainWindow/Main/Pickups" index="7"]
+position = Vector2(124.57678, -521.193)
+
+[node name="Medkit9" parent="WindowsManager/MainWindow/Main/Pickups" index="8"]
+position = Vector2(-145.65118, 163.99622)
+
+[node name="Medkit10" parent="WindowsManager/MainWindow/Main/Pickups" index="9"]
+position = Vector2(159.89642, -3.8685036)
+
+[node name="Medkit11" parent="WindowsManager/MainWindow/Main/Pickups" index="10"]
+position = Vector2(-371.37375, 359.18384)
+
+[node name="Medkit12" parent="WindowsManager/MainWindow/Main/Pickups" index="11"]
+position = Vector2(126.66736, -576.0365)
+
+[node name="Medkit13" parent="WindowsManager/MainWindow/Main/Pickups" index="12"]
+position = Vector2(-248.01355, 467.6234)
+
+[node name="Medkit14" parent="WindowsManager/MainWindow/Main/Pickups" index="13"]
+position = Vector2(-446.90884, -374.29776)
+
+[node name="Medkit15" parent="WindowsManager/MainWindow/Main/Pickups" index="14"]
+position = Vector2(60.28186, -211.12218)
+
+[node name="Medkit16" parent="WindowsManager/MainWindow/Main/Pickups" index="15"]
+position = Vector2(-225.77203, -488.85303)
+
+[node name="Medkit17" parent="WindowsManager/MainWindow/Main/Pickups" index="16"]
+position = Vector2(-234.98279, 154.91714)
+
+[node name="Medkit18" parent="WindowsManager/MainWindow/Main/Pickups" index="17"]
+position = Vector2(78.77588, 925.94086)
+
+[node name="Medkit19" parent="WindowsManager/MainWindow/Main/Pickups" index="18"]
+position = Vector2(-350.2932, -748.9106)
+
+[node name="Medkit20" parent="WindowsManager/MainWindow/Main/Pickups" index="19"]
+position = Vector2(278.16138, 669.3589)
+
+[node name="Medkit21" parent="WindowsManager/MainWindow/Main/Pickups" index="20"]
+position = Vector2(-265.991, 273.80048)
+
+[node name="Medkit22" parent="WindowsManager/MainWindow/Main/Pickups" index="21"]
+position = Vector2(-164.63849, 644.09705)
+
+[node name="Medkit23" parent="WindowsManager/MainWindow/Main/Pickups" index="22"]
+position = Vector2(-448.1875, 606.07385)
+
+[node name="Medkit24" parent="WindowsManager/MainWindow/Main/Pickups" index="23"]
+position = Vector2(-127.25235, 670.17)
+
+[node name="Medkit25" parent="WindowsManager/MainWindow/Main/Pickups" index="24"]
+position = Vector2(233.36792, -134.7056)
+
+[node name="Medkit26" parent="WindowsManager/MainWindow/Main/Pickups" index="25"]
+position = Vector2(385.11835, -44.389374)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="WindowsManager/MainWindow"]
+layer = -1
+
+[node name="Background" parent="WindowsManager/MainWindow/CanvasLayer" instance=ExtResource("3_17qf6")]
+expand_mode = 1
+
+[node name="Window1" type="Window" parent="WindowsManager"]
 oversampling_override = 1.0
-position = Vector2i(1400, 300)
+position = Vector2i(0, 105)
 size = Vector2i(500, 500)
 
-[node name="Camera" parent="WindowsManager/SplitScreen2/SubViewport/Window" node_paths=PackedStringArray("targets") instance=ExtResource("2_3hbfx")]
-targets = [NodePath("../../../../Screen_Captain/SubViewport/Window/PlayerCaptain"), NodePath("../PlayerCrew_2")]
+[node name="Camera" parent="WindowsManager/Window1" node_paths=PackedStringArray("targets") instance=ExtResource("2_3hbfx")]
+targets = [NodePath("../../MainWindow/Main/PlayerCaptain"), NodePath("../PlayerCrew_1")]
 
-[node name="PlayerCrew_2" parent="WindowsManager/SplitScreen2/SubViewport/Window" instance=ExtResource("6_17qf6")]
-position = Vector2(150, 100)
+[node name="PlayerCrew_1" parent="WindowsManager/Window1" instance=ExtResource("6_17qf6")]
+position = Vector2(350, 570)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="WindowsManager/Window1"]
+layer = -1
+
+[node name="Background" parent="WindowsManager/Window1/CanvasLayer" instance=ExtResource("3_17qf6")]
+expand_mode = 1
+
+[node name="Window2" type="Window" parent="WindowsManager"]
+oversampling_override = 1.0
+position = Vector2i(577, 105)
+size = Vector2i(500, 500)
+
+[node name="Camera" parent="WindowsManager/Window2" node_paths=PackedStringArray("targets") instance=ExtResource("2_3hbfx")]
+targets = [NodePath("../../MainWindow/Main/PlayerCaptain"), NodePath("../PlayerCrew_2")]
+
+[node name="PlayerCrew_2" parent="WindowsManager/Window2" instance=ExtResource("6_17qf6")]
+position = Vector2(770, 570)
 input_left = "left1"
 input_right = "right1"
 input_up = "up1"
 input_down = "down1"
 
-[node name="HealthBar" parent="WindowsManager/SplitScreen2/SubViewport/Window/PlayerCrew_2" index="4"]
+[node name="HealthBar" parent="WindowsManager/Window2/PlayerCrew_2" index="4"]
 texture = SubResource("AtlasTexture_jkfj7")
 
-[editable path="WindowsManager/SplitScreen"]
-[editable path="WindowsManager/Screen_Captain"]
-[editable path="WindowsManager/SplitScreen2"]
-[editable path="WindowsManager/SplitScreen2/SubViewport/Window/PlayerCrew_2"]
-[editable path="WindowsManager/SplitScreen2/SubViewport/Window/PlayerCrew_2/HitboxComponent"]
+[node name="CanvasLayer" type="CanvasLayer" parent="WindowsManager/Window2"]
+layer = -1
+
+[node name="Background" parent="WindowsManager/Window2/CanvasLayer" instance=ExtResource("3_17qf6")]
+expand_mode = 1
+
+[editable path="WindowsManager/MainWindow/Main"]
+[editable path="WindowsManager/Window2/PlayerCrew_2"]
+[editable path="WindowsManager/Window2/PlayerCrew_2/HitboxComponent"]
