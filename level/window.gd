@@ -60,9 +60,8 @@ func check_window_size():
 	if size.y <= min_window_size.y:
 		print(name)
 		if visible:
+			Global.windows_manager.main_sub_window.grab_focus()
 			visible = false
-			return
-			#focus_exited.emit()
 
 func _on_focus_entered() -> void:
 	if player: player.can_control = true
