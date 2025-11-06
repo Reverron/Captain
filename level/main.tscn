@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://dejkcym2erm1l"]
+[gd_scene load_steps=19 format=3 uid="uid://dejkcym2erm1l"]
 
 [ext_resource type="Script" uid="uid://bsimjmtawl0u1" path="res://level/main.gd" id="1_414cb"]
-[ext_resource type="PackedScene" uid="uid://ckhsfu8dljb37" path="res://util/window.tscn" id="2_pjfo3"]
 [ext_resource type="PackedScene" uid="uid://b3vc3ph36wid8" path="res://util/shop.tscn" id="3_fh3di"]
 [ext_resource type="PackedScene" uid="uid://bfcrrry3qqv4i" path="res://objs/obstacles/obstacle.tscn" id="3_nt2wp"]
 [ext_resource type="Script" uid="uid://62uluyengmmo" path="res://level/spawner.gd" id="3_qh04p"]
@@ -27,11 +26,10 @@ shader_parameter/radius = 1.0
 position = Vector2(576, 13)
 script = ExtResource("1_414cb")
 speed = 10.0
-window_scene = ExtResource("2_pjfo3")
 
 [node name="PlayerCaptain" parent="." instance=ExtResource("7_j70lj")]
 top_level = true
-position = Vector2(562, 334)
+position = Vector2(436, 486)
 
 [node name="MainUI" type="CanvasLayer" parent="."]
 

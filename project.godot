@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Captain"
-run/main_scene="uid://dk0n86nx6c871"
+run/main_scene="uid://c7jsrbpfsrcop"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://assets/icon.svg"
 

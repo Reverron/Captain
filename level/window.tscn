@@ -1,20 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://ckhsfu8dljb37"]
 
-[ext_resource type="Script" uid="uid://b4kpsmx5u0v0h" path="res://util/window.gd" id="1_iwyyp"]
+[ext_resource type="Script" uid="uid://b4kpsmx5u0v0h" path="res://level/window.gd" id="1_iwyyp"]
 [ext_resource type="PackedScene" uid="uid://b8883o2nix12n" path="res://level/camera.tscn" id="2_nen6l"]
 [ext_resource type="PackedScene" uid="uid://bnke1gr0k65og" path="res://player/player_crew.tscn" id="3_lsbgt"]
 [ext_resource type="PackedScene" uid="uid://c26nlcncwew4" path="res://level/background.tscn" id="4_o4h07"]
 
 [node name="Window" type="Window"]
+transparent_bg = true
 canvas_item_default_texture_filter = 0
 oversampling_override = 1.0
 title = "crew1"
 position = Vector2i(0, 36)
 size = Vector2i(500, 500)
-exclusive = true
 unresizable = true
-always_on_top = true
+transparent = true
 sharp_corners = true
+minimize_disabled = true
+maximize_disabled = true
 keep_title_visible = true
 content_scale_aspect = 1
 script = ExtResource("1_iwyyp")
@@ -23,12 +25,7 @@ script = ExtResource("1_iwyyp")
 targets = [NodePath("../Player")]
 
 [node name="Player" parent="." instance=ExtResource("3_lsbgt")]
-unique_name_in_owner = true
 position = Vector2(350, 570)
 
 [node name="Background" parent="." instance=ExtResource("4_o4h07")]
-visible = false
 script = null
-
-[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
-[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

@@ -1,0 +1,75 @@
+extends Window
+class_name Wwindow
+
+@export var width_range: Vector2i = Vector2i(300, 800)
+@export var height_range: Vector2i = Vector2i(300, 800)
+
+@export var max_distance: float = 500.0  # beyond this, window is minimum size
+@export var min_window_size: Vector2i = Vector2i(250, 250)
+
+var size_tween : Tween
+
+@onready var player: Player = $Player
+
+func random_size() -> Vector2i:
+	return Vector2(randi_range(width_range.x, width_range.y), randi_range(height_range.x, height_range.y))
+
+func init_window(_x: float, _y: float):
+	position.x = int(_x)
+	position.y = int(_y)
+	init_player_pos()
+	resize_window(random_size())
+	
+	#if not player or not is_instance_valid(player) or not Global.get_captain():
+		#return
+	#var dist := player.global_transform.origin.distance_to(Global.get_captain().global_transform.origin)
+	#var t : float = clamp(dist / max_distance, 0.0, 1.0)  # 0 = close, 1 = far
+#
+	#var target_w = lerp(width_range.y, width_range.x, t)
+	#var target_h = lerp(height_range.y, height_range.x, t)
+	#var target_size = Vector2i(target_w, target_h)
+	#resize_window(target_size)
+
+func init_player_pos():
+	if not player: return
+	player.global_position = Vector2.ZERO
+
+func init_window_signals():
+	focus_entered.connect(_on_focus_entered)
+	focus_exited.connect(_on_focus_exited)
+	close_requested.connect(_clear_window)
+
+func _ready() -> void:
+	init_window_signals()
+
+func resize_window(target_size: Vector2i):
+	unresizable = false
+	#if size_tween and size_tween.is_running():
+		#size_tween.kill()
+#
+	#size_tween = create_tween()
+	#size_tween.tween_property(self, "size", target_size, 0.2)
+	#size_tween.finished.connect(func(): unresizable = true)
+	
+	size = target_size
+	unresizable = true
+	check_window_size()
+
+func check_window_size():
+	print(name)
+	if size.y <= min_window_size.y:
+		print(name)
+		if visible:
+			visible = false
+			return
+			#focus_exited.emit()
+
+func _on_focus_entered() -> void:
+	if player: player.can_control = true
+	if has_focus(): resize_window(size*0.8)
+
+func _on_focus_exited() -> void:
+	if player: player.can_control = false
+
+func _clear_window():
+	print("close")

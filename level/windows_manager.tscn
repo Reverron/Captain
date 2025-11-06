@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7jsrbpfsrcop"]
+
+[ext_resource type="Script" uid="uid://cjn2sufltatvv" path="res://level/windows_manager.gd" id="1_dsk6m"]
+[ext_resource type="PackedScene" uid="uid://ckhsfu8dljb37" path="res://level/window.tscn" id="2_naofy"]
+[ext_resource type="PackedScene" uid="uid://b7okfrd288s7i" path="res://level/main_window.tscn" id="3_msa7g"]
+
+[node name="WindowsManager" type="Node" node_paths=PackedStringArray("main_sub_window")]
+script = ExtResource("1_dsk6m")
+window_scene = ExtResource("2_naofy")
+main_sub_window = NodePath("MainWindow")
+
+[node name="MainWindow" parent="." instance=ExtResource("3_msa7g")]

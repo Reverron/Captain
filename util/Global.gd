@@ -17,6 +17,8 @@ var fuel_heating_speed := 5.0
 
 var health_component: HealthComponent
 
+var windows_manager: WindowManager
+
 func _ready() -> void:
 	add_fuel(max_fuel)
 
