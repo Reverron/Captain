@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://631pf63y7wqo"]
+[gd_scene load_steps=10 format=3 uid="uid://631pf63y7wqo"]
 
 [ext_resource type="PackedScene" uid="uid://k8inc765efmm" path="res://player/player.tscn" id="1_6ae7q"]
 [ext_resource type="PackedScene" uid="uid://dg2lpxirhvole" path="res://level/boundary.tscn" id="2_biafw"]
 [ext_resource type="Texture2D" uid="uid://c2hyng885tdmu" path="res://assets/sprite sheet.png" id="2_umdq8"]
 [ext_resource type="PackedScene" uid="uid://c7igustukqvma" path="res://components/interaction_component.tscn" id="4_kgmax"]
+[ext_resource type="Texture2D" uid="uid://dlsk0gb3rteja" path="res://assets/tile sheet 1.png" id="5_mshal"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgmax"]
 atlas = ExtResource("2_umdq8")
@@ -16,6 +17,10 @@ load_path = "res://.godot/imported/energy.png-d31ae10deb2f267a25814b3eac80d643.c
 atlas = SubResource("CompressedTexture2D_biafw")
 region = Rect2(0, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mshal"]
+atlas = ExtResource("5_mshal")
+region = Rect2(56, 112, 16, 16)
+
 [node name="PlayerCaptain" node_paths=PackedStringArray("interaction") instance=ExtResource("1_6ae7q")]
 input_left = "left3"
 input_right = "right3"
@@ -27,6 +32,7 @@ friction = 0.8
 interaction = NodePath("InteractionComponent")
 
 [node name="Sprite2D" parent="." index="0"]
+visible = false
 z_index = -1
 scale = Vector2(2.5, 2.5)
 texture = SubResource("AtlasTexture_kgmax")
@@ -78,6 +84,9 @@ texture = SubResource("AtlasTexture_umdq8")
 scale = Vector2(2.5, 2.5)
 build_mode = 1
 polygon = PackedVector2Array(19.2, 26.4, 19.2, 11.6, 5.2, -15.6, 2.4, -26.8, -2.4, -26.8, -5.2, -15.6, -19.2, 11.6, -19.6, 26.4)
+
+[node name="RadarObjComponent" parent="." index="10"]
+texture = SubResource("AtlasTexture_mshal")
 
 [editable path="InteractionComponent"]
 [editable path="InteractionController"]

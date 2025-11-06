@@ -24,7 +24,7 @@ scale = Vector2(8, 2.3)
 texture = ExtResource("1_qbb0q")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-500, 0)
+position = Vector2(-2000, 0)
 collision_layer = 2
 collision_mask = 0
 
@@ -32,7 +32,7 @@ collision_mask = 0
 shape = SubResource("WorldBoundaryShape2D_qh04p")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(500, 0)
+position = Vector2(2000, 0)
 collision_layer = 2
 collision_mask = 0
 
@@ -40,7 +40,7 @@ collision_mask = 0
 shape = SubResource("WorldBoundaryShape2D_k8f8b")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(0, 150)
+position = Vector2(0, 2000)
 collision_layer = 2
 collision_mask = 0
 
@@ -48,7 +48,7 @@ collision_mask = 0
 shape = SubResource("WorldBoundaryShape2D_7vc00")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
-position = Vector2(0, -150)
+position = Vector2(0, -2000)
 collision_layer = 2
 collision_mask = 0
 

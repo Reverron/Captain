@@ -56,8 +56,8 @@ func _on_files_dropped(files: PackedStringArray):
 
 func check_file(f: String):
 	var fname = f.get_file()
-	if fname == "new.txt" or fname == "1.txt":
-		delete_file(f)
+	#if fname == "new.txt" or fname == "1.txt":
+	delete_file(f)
 		#spawn resource in the game
 
 func delete_file(path: String) -> void:

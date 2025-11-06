@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://k8inc765efmm"]
+[gd_scene load_steps=12 format=3 uid="uid://k8inc765efmm"]
 
 [ext_resource type="Script" uid="uid://dndjlx1hbskks" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://cdsuu2inp4asx" path="res://assets/Main Ship - Base - Full health.png" id="2_yw30f"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://baja0n03nvi3b" path="res://components/health_component.tscn" id="3_yw30f"]
 [ext_resource type="PackedScene" uid="uid://cfvs1slauxxpc" path="res://components/hitbox_component.tscn" id="4_qjkh3"]
 [ext_resource type="Script" uid="uid://dica8ta0jb0mv" path="res://player/health_bar.gd" id="5_g6k8r"]
+[ext_resource type="PackedScene" uid="uid://6ebhxm2nknu0" path="res://components/radar_obj_component.tscn" id="8_rgyib"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgyib"]
 atlas = ExtResource("3_boad6")
@@ -56,5 +57,7 @@ health_bar = NodePath("../HealthBar")
 collision_layer = 2
 health_component = NodePath("../HealthComponent")
 knockback_node = NodePath("..")
+
+[node name="RadarObjComponent" parent="." instance=ExtResource("8_rgyib")]
 
 [editable path="HitboxComponent"]

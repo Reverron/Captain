@@ -571,5 +571,6 @@ position = Vector2(251.014, 568.841)
 
 [node name="Background" parent="." instance=ExtResource("2_bso6d")]
 unique_name_in_owner = true
+visible = false
 
 [editable path="Main"]

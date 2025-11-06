@@ -44,21 +44,18 @@ func _ready() -> void:
 
 func resize_window(target_size: Vector2i):
 	unresizable = false
-	#if size_tween and size_tween.is_running():
-		#size_tween.kill()
-#
-	#size_tween = create_tween()
-	#size_tween.tween_property(self, "size", target_size, 0.2)
-	#size_tween.finished.connect(func(): unresizable = true)
+	if size_tween and size_tween.is_running():
+		size_tween.kill()
+
+	size_tween = create_tween()
+	size_tween.tween_property(self, "size", target_size, 0.2)
+	#.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN_OUT)
+	size_tween.finished.connect(func(): unresizable = true)
 	
-	size = target_size
-	unresizable = true
 	check_window_size()
 
 func check_window_size():
-	print(name)
 	if size.y <= min_window_size.y:
-		print(name)
 		if visible:
 			Global.windows_manager.main_sub_window.grab_focus()
 			visible = false

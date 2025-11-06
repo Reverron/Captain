@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnke1gr0k65og"]
+[gd_scene load_steps=9 format=3 uid="uid://bnke1gr0k65og"]
 
 [ext_resource type="PackedScene" uid="uid://k8inc765efmm" path="res://player/player.tscn" id="1_acesj"]
 [ext_resource type="Texture2D" uid="uid://bt7cqlnsthmow" path="res://player/hp_bar.tres" id="2_gbhii"]
 [ext_resource type="PackedScene" uid="uid://0qvg0nfc8vj" path="res://components/inventory_component.tscn" id="2_prtci"]
+[ext_resource type="Texture2D" uid="uid://dlsk0gb3rteja" path="res://assets/tile sheet 1.png" id="4_c6f1t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_prtci"]
 
@@ -12,14 +13,15 @@ radius = 19.0263
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbhii"]
 radius = 18.0
 
-[node name="PlayerCrew" instance=ExtResource("1_acesj")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_prtci"]
+atlas = ExtResource("4_c6f1t")
+region = Rect2(40, 112, 16, 16)
+
+[node name="PlayerCrew" groups=["radar_objs"] instance=ExtResource("1_acesj")]
 input_left = "left2"
 input_right = "right2"
 input_up = "up2"
 input_down = "down2"
-
-[node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource("CircleShape2D_prtci")
 
 [node name="InventoryComponent" parent="." index="2" instance=ExtResource("2_prtci")]
 anchors_preset = 15
@@ -32,17 +34,23 @@ offset_right = 22.0
 offset_bottom = -20.0
 grow_vertical = 2
 
-[node name="InteractionController" parent="." index="3"]
+[node name="CollisionShape2D" parent="." index="3"]
+shape = SubResource("CircleShape2D_prtci")
+
+[node name="InteractionController" parent="." index="4"]
 collision_layer = 2
 
 [node name="CollisionShape2D" parent="InteractionController" index="0"]
 shape = SubResource("CircleShape2D_c6f1t")
 
-[node name="HealthBar" parent="." index="4"]
+[node name="HealthBar" parent="." index="5"]
 texture = ExtResource("2_gbhii")
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("CircleShape2D_gbhii")
+
+[node name="RadarObjComponent" parent="." index="8"]
+texture = SubResource("AtlasTexture_prtci")
 
 [editable path="InteractionController"]
 [editable path="HitboxComponent"]

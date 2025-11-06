@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfhrsd3cdrmtl"]
+[gd_scene load_steps=9 format=3 uid="uid://dfhrsd3cdrmtl"]
 
 [ext_resource type="Script" uid="uid://cx4tikchnd24s" path="res://level/stations/station.gd" id="1_wrbuq"]
 [ext_resource type="PackedScene" uid="uid://c7igustukqvma" path="res://components/interaction_component.tscn" id="2_h3y18"]
+[ext_resource type="PackedScene" uid="uid://6ebhxm2nknu0" path="res://components/radar_obj_component.tscn" id="3_j800o"]
+[ext_resource type="Texture2D" uid="uid://c2hyng885tdmu" path="res://assets/sprite sheet.png" id="4_6vrhq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c0u0k"]
 load_path = "res://.godot/imported/tile sheet 1.png-61c5062cbbc43a58bbc4c13b2a82822d.ctex"
@@ -13,7 +15,11 @@ region = Rect2(48, 64, 16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_h3y18"]
 radius = 144.392
 
-[node name="Station" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7qgn"]
+atlas = ExtResource("4_6vrhq")
+region = Rect2(64, 104, 8, 8)
+
+[node name="Station" type="Node2D" groups=["radar_objs"]]
 script = ExtResource("1_wrbuq")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -28,5 +34,8 @@ interact_duration = 2.0
 
 [node name="CollisionShape2D" parent="InteractionComponent" index="0"]
 shape = SubResource("CircleShape2D_h3y18")
+
+[node name="RadarObjComponent" parent="." instance=ExtResource("3_j800o")]
+texture = SubResource("AtlasTexture_h7qgn")
 
 [editable path="InteractionComponent"]

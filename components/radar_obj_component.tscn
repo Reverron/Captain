@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://6ebhxm2nknu0"]
+
+[node name="RadarObjComponent" type="Sprite2D"]
+visible = false
+top_level = true
+z_index = 1
+scale = Vector2(10, 10)
