@@ -14,6 +14,4 @@ icon = SubResource("AtlasTexture_erq5y")
 item_type = 2
 value = 1.0
 is_stackable = false
-max_stack = 1
-description = ""
 metadata/_custom_type_script = "uid://bjljm860oh4bu"

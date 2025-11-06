@@ -71,6 +71,7 @@ func enter_station(station: Station):
 	main.open_shop()
 
 func exit_station():
+	#could spawn a player if it died
 	max_fuel += 100.0
 	add_fuel(max_fuel)
 	game_setup()

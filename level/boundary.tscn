@@ -18,6 +18,7 @@ normal = Vector2(0, 1)
 script = ExtResource("1_1gtuc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.247059)
 scale = Vector2(8, 2.3)
 texture = ExtResource("1_qbb0q")

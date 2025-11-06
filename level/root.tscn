@@ -36,10 +36,6 @@ sharp_corners = true
 
 [node name="Main" parent="WindowsManager/MainWindow" instance=ExtResource("1_urc1q")]
 
-[node name="Obstacles" parent="WindowsManager/MainWindow/Main" index="3"]
-is_paused = false
-speed = 2.0
-
 [node name="Obstacle" parent="WindowsManager/MainWindow/Main/Obstacles" index="0"]
 position = Vector2(50.6719, -1525.31)
 
@@ -301,9 +297,6 @@ position = Vector2(2.84357, 442.175)
 [node name="Obstacle87" parent="WindowsManager/MainWindow/Main/Obstacles" index="86"]
 position = Vector2(382.938, -997.231)
 
-[node name="Fuels" parent="WindowsManager/MainWindow/Main" index="4"]
-is_paused = false
-
 [node name="Fuel" parent="WindowsManager/MainWindow/Main/Fuels" index="0"]
 position = Vector2(440.901, -2343.78)
 
@@ -453,9 +446,6 @@ position = Vector2(-172.041, -516.188)
 
 [node name="Fuel50" parent="WindowsManager/MainWindow/Main/Fuels" index="49"]
 position = Vector2(-165.083, 685.782)
-
-[node name="Pickups" parent="WindowsManager/MainWindow/Main" index="5"]
-is_paused = false
 
 [node name="Medkit" parent="WindowsManager/MainWindow/Main/Pickups" index="0"]
 position = Vector2(20.4308, 453.551)
@@ -616,7 +606,7 @@ content_scale_aspect = 1
 script = ExtResource("7_jkfj7")
 
 [node name="Camera" parent="WindowsManager/Window1" node_paths=PackedStringArray("targets") instance=ExtResource("2_3hbfx")]
-targets = [NodePath("../../MainWindow/Main/PlayerCaptain"), NodePath("../PlayerCrew_1")]
+targets = [NodePath("../PlayerCrew_1")]
 
 [node name="PlayerCrew_1" parent="WindowsManager/Window1" instance=ExtResource("6_17qf6")]
 position = Vector2(350, 570)
@@ -637,7 +627,7 @@ script = ExtResource("7_jkfj7")
 x = 1420
 
 [node name="Camera" parent="WindowsManager/Window2" node_paths=PackedStringArray("targets") instance=ExtResource("2_3hbfx")]
-targets = [NodePath("../../MainWindow/Main/PlayerCaptain"), NodePath("../PlayerCrew_2")]
+targets = [NodePath("../PlayerCrew_2")]
 
 [node name="PlayerCrew_2" parent="WindowsManager/Window2" instance=ExtResource("6_17qf6")]
 position = Vector2(770, 570)
