@@ -647,7 +647,7 @@ position = Vector2(274.765, 100.719)
 [node name="Stations" type="Node2D" parent="."]
 
 [node name="Station1" parent="Stations" instance=ExtResource("15_b6row")]
-position = Vector2(381, -371)
+position = Vector2(88, 215)
 
 [node name="Station2" parent="Stations" instance=ExtResource("12_b6row")]
 position = Vector2(-470, -849)
