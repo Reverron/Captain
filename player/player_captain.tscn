@@ -33,7 +33,6 @@ texture = SubResource("AtlasTexture_kgmax")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 scale = Vector2(2.5, 2.5)
-build_mode = 1
 polygon = PackedVector2Array(19.2, 26.4, 19.2, 11.6, 5.2, -15.6, 2.4, -26.8, -2.4, -26.8, -5.2, -15.6, -19.2, 11.6, -19.6, 26.4)
 disabled = true
 
@@ -49,7 +48,6 @@ position = Vector2(0, 2)
 
 [node name="HitboxComponent_Area2D#CollisionPolygon2D2" type="CollisionPolygon2D" parent="InteractionComponent" index="1"]
 scale = Vector2(2.5, 2.5)
-build_mode = 1
 polygon = PackedVector2Array(19.2, 29.6, 23.6, 12.4, 8.4, -16, 5.2, -28.4, -4.4, -28.4, -8, -16, -23.6, 12.4, -19.6, 30)
 
 [node name="InteractionController" parent="." index="5"]
@@ -57,7 +55,6 @@ collision_layer = 8
 
 [node name="HitboxComponent_Area2D#CollisionPolygon2D2" type="CollisionPolygon2D" parent="InteractionController" index="0"]
 scale = Vector2(2.5, 2.5)
-build_mode = 1
 polygon = PackedVector2Array(19.2, 29.6, 23.6, 12.4, 8.4, -16, 5.2, -28.4, -4.4, -28.4, -8, -16, -23.6, 12.4, -19.6, 30)
 
 [node name="Boundary" parent="." index="6" instance=ExtResource("2_biafw")]
