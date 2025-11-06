@@ -8,6 +8,7 @@ extends Node
 
 func _ready():
 #sharing the same world as subwindow
+	_MainSubWindow.files_dropped.connect(_on_files_dropped)
 	_MainSubWindow.world_2d = _MainWindow.world_2d
 	if _SubWindow1: _SubWindow1.world_2d = _MainWindow.world_2d
 	if _SubWindow2: _SubWindow2.world_2d = _MainWindow.world_2d
@@ -31,4 +32,20 @@ func _ready():
 	_MainWindow.min_size = player_size
 	_MainWindow.size = _MainWindow.min_size
 
-	# set the subwindow's world...
+func _on_files_dropped(files: PackedStringArray):
+	for f in files:
+		print("File dropped:", f)
+		check_file(f)
+
+func check_file(f: String):
+	var fname = f.get_file()
+	if fname == "new.txt" or fname == "1.txt":
+		delete_file(f)
+
+func delete_file(path: String) -> void:
+	var dir := DirAccess.open(path.get_base_dir())
+	if dir and dir.file_exists(path.get_file()):
+		dir.remove(path.get_file())
+	#var err := DirAccess.remove_absolute(path)
+	#if err != OK:
+		#push_warning("Could not delete file: %s" % path)

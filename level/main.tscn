@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://dejkcym2erm1l"]
 
 [ext_resource type="Script" uid="uid://bsimjmtawl0u1" path="res://level/main.gd" id="1_414cb"]
-[ext_resource type="PackedScene" uid="uid://copai3i4angwa" path="res://util/window.tscn" id="2_pjfo3"]
+[ext_resource type="PackedScene" uid="uid://ckhsfu8dljb37" path="res://util/window.tscn" id="2_pjfo3"]
 [ext_resource type="PackedScene" uid="uid://b3vc3ph36wid8" path="res://util/shop.tscn" id="3_fh3di"]
 [ext_resource type="PackedScene" uid="uid://bfcrrry3qqv4i" path="res://objs/obstacles/obstacle.tscn" id="3_nt2wp"]
 [ext_resource type="Script" uid="uid://62uluyengmmo" path="res://level/spawner.gd" id="3_qh04p"]

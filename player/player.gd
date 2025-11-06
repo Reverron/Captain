@@ -9,6 +9,7 @@ class_name Player
 
 ## --- Attributes ---
 var is_dead: bool = false
+var can_control: bool = true
 @export var is_captain: bool = false
 @export var move_speed: float = 100.0
 @export var friction: float = 0.99
@@ -59,7 +60,7 @@ func _physics_process(delta: float) -> void:
 
 ## --- Input ---
 func _get_move_input() -> Vector2:
-	if is_dead: 
+	if is_dead or not can_control: 
 		return Vector2.ZERO
 	var h_dir := Input.get_axis(input_left, input_right)
 	var v_dir := Input.get_axis(input_up, input_down)
