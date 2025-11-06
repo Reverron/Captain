@@ -75,18 +75,16 @@ func _process_movement(delta: float) -> void:
 
 	var move_input := _get_move_input()
 
-	if not is_captain:
-		velocity = move_input * move_speed
-	else:
-		# captain moves horizontally only
-		velocity.x = move_input.x * move_speed
-		velocity.y = move_toward(velocity.y, 0, move_speed * delta)
+	velocity = move_input * move_speed
+	# captain moves horizontally only
+	velocity.x = move_input.x * move_speed
+	velocity.y = move_toward(velocity.y, 0, move_speed * delta)
 		
 	velocity *= friction
 	move_and_slide()
 
 func _process_rotation(delta: float) -> void:
-	if is_captain || is_stunned: return
+	if is_stunned: return
 	if _get_move_input().length() > rotation_threshold:
 		var target_angle := velocity.angle() + deg_to_rad(90)
 		rotation = lerp_angle(rotation, target_angle, rotation_smoothness * delta)

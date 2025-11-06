@@ -17,9 +17,12 @@ func _ready() -> void:
 	#background.set_anchors_preset(Control.PRESET_CENTER)
 
 func _physics_process(_delta: float) -> void:
-	if player_marker: player_marker.rotation = player.rotation + PI / 2
+	if not player: return
+	if player_marker: player_marker.rotation = player.rotation
 	for obj in markers:
 		var obj_pos = obj.global_position - player.global_position + Vector2(get_window().size / 2)
+		obj_pos.x = clamp(obj_pos.x, 0, get_window().size.x)
+		obj_pos.y = clamp(obj_pos.y, 0, get_window().size.y)
 		markers[obj].position = obj_pos
 
 func init_player_marker():
@@ -27,6 +30,7 @@ func init_player_marker():
 		return
 	player_marker = player.get_node("RadarObjComponent")
 	if player_marker:
+		player_marker.reparent(background)
 		player_marker.show()
 		player_marker.global_position = get_window().size / 2
 

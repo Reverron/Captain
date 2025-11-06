@@ -10,6 +10,7 @@ var cur_hp: int : set = set_cur_hp, get = get_cur_hp
 
 func _ready() -> void:
 	init_hp()
+	if health_bar: health_bar.health_component = self
 
 func init_hp() -> void:
 	cur_hp = max_hp

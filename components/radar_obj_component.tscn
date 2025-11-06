@@ -4,4 +4,4 @@
 visible = false
 top_level = true
 z_index = 1
-scale = Vector2(10, 10)
+scale = Vector2(3, 3)

@@ -1,7 +1,7 @@
 extends TextureRect
 class_name HealthBar
 
-@onready var health_component: HealthComponent = %HealthComponent
+var health_component: HealthComponent
 @export var frame_width: int = 48
 
 func update_hp_bar(cur_hp: int) -> void:
