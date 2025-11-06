@@ -20,7 +20,7 @@
 [node name="Main" type="Node2D" groups=["main"]]
 position = Vector2(576, 13)
 script = ExtResource("1_414cb")
-speed = 50.0
+speed = 10.0
 
 [node name="PlayerCaptain" parent="." instance=ExtResource("7_j70lj")]
 top_level = true

@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Obstacle
 
 @export var min_speed: float = 5.0
-@export var max_speed: float = 30.0
+@export var max_speed: float = 50.0
 var speed: float
 
 func _ready() -> void:

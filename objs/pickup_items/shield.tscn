@@ -15,4 +15,7 @@ can_anim = false
 [node name="Sprite2D" parent="." index="0"]
 texture = SubResource("AtlasTexture_7lxed")
 
+[node name="InteractionComponent" parent="." index="4"]
+interact_name = "Shield"
+
 [editable path="InteractionComponent"]

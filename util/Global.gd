@@ -71,6 +71,8 @@ func enter_station(station: Station):
 	main.open_shop()
 
 func exit_station():
+	max_fuel += 100.0
+	add_fuel(max_fuel)
 	game_setup()
 	main.close_shop()
 	for p in players:

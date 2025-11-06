@@ -18,8 +18,8 @@ normal = Vector2(0, 1)
 script = ExtResource("1_1gtuc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.24705882)
-scale = Vector2(8, 1.5)
+modulate = Color(1, 1, 1, 0.247059)
+scale = Vector2(8, 2.3)
 texture = ExtResource("1_qbb0q")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -39,7 +39,7 @@ collision_mask = 0
 shape = SubResource("WorldBoundaryShape2D_k8f8b")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(0, 100)
+position = Vector2(0, 150)
 collision_layer = 2
 collision_mask = 0
 
@@ -47,7 +47,7 @@ collision_mask = 0
 shape = SubResource("WorldBoundaryShape2D_7vc00")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
-position = Vector2(0, -100)
+position = Vector2(0, -150)
 collision_layer = 2
 collision_mask = 0
 
