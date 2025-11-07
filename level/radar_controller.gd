@@ -7,6 +7,7 @@ class_name RadarController
 
 var target = position
 var curve_point = position
+var curve_dist = 300.0
 var curve_angle = 60.0
 var has_arrived := false
 
@@ -18,7 +19,7 @@ func _input(event: InputEvent) -> void:
 		has_arrived = false
 		
 		target = get_global_mouse_position()
-		
+		var dist = player.global_position.distance_to(target)
 		var to_target = (target - player.global_position).normalized()
 		var forward = Vector2(
 			cos(player.global_rotation - deg_to_rad(90)), 
@@ -27,16 +28,15 @@ func _input(event: InputEvent) -> void:
 		var angle_deg = rad_to_deg(forward.angle_to(to_target))
 		
 		path.curve.add_point(to_local(player.global_position))
-		
-		if angle_deg < -curve_angle or angle_deg > curve_angle:
-			var dist = player.global_position.distance_to(target)
+
+		if dist < curve_dist or (angle_deg >= -curve_angle and angle_deg <= curve_angle):
+			path.curve.add_point(to_local(target))
+		else:
 			curve_point = Vector2(
-				dist * sin(player.global_rotation) + player.global_position.x,
-				dist * cos(player.global_rotation) + player.global_position.y
+				curve_dist * sin(player.global_rotation) + player.global_position.x,
+				curve_dist * cos(player.global_rotation) + player.global_position.y
 			)
 			path.curve.add_point(to_local(target), to_local(curve_point - target))
-		else:
-			path.curve.add_point(to_local(target))
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("secondary"):
