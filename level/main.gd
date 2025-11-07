@@ -16,7 +16,3 @@ func open_shop():
 
 func close_shop():
 	shop.hide()
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("primary"):
-		Global.windows_manager.spawn_window()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dejkcym2erm1l"]
+[gd_scene load_steps=17 format=3 uid="uid://dejkcym2erm1l"]
 
 [ext_resource type="Script" uid="uid://bsimjmtawl0u1" path="res://level/main.gd" id="1_414cb"]
 [ext_resource type="PackedScene" uid="uid://b3vc3ph36wid8" path="res://util/shop.tscn" id="3_fh3di"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bqysgv85fsncy" path="res://util/game_over_screen.tscn" id="10_tdkxd"]
 [ext_resource type="PackedScene" uid="uid://cge6vs6qifriy" path="res://level/stations/instances/station_1.tscn" id="15_b6row"]
 [ext_resource type="PackedScene" uid="uid://c26nlcncwew4" path="res://level/background.tscn" id="16_177d4"]
+
+[sub_resource type="Curve2D" id="Curve2D_ns06i"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_biafw"]
 load_path = "res://.godot/imported/energy.png-d31ae10deb2f267a25814b3eac80d643.ctex"
@@ -31,6 +33,13 @@ position = Vector2(436, 486)
 
 [node name="HealthComponent" parent="PlayerCaptain" index="8" node_paths=PackedStringArray("health_bar")]
 health_bar = NodePath("../../MainUI/HealthBar")
+
+[node name="Path2D" type="Path2D" parent="."]
+top_level = true
+light_mask = 0
+visibility_layer = 3
+position = Vector2(-140, 486)
+curve = SubResource("Curve2D_ns06i")
 
 [node name="MainUI" type="CanvasLayer" parent="."]
 layer = 2
@@ -488,3 +497,4 @@ position = Vector2(88, 215)
 [editable path="PlayerCaptain/InteractionComponent"]
 [editable path="PlayerCaptain/InteractionController"]
 [editable path="PlayerCaptain/HitboxComponent"]
+[editable path="PlayerCaptain/RadarObjComponent"]

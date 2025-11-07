@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 
 ## --- Input ---
 func _get_move_input() -> Vector2:
-	if is_dead or not can_control: 
+	if is_dead or not can_control or is_captain: 
 		return Vector2.ZERO
 	var h_dir := Input.get_axis(input_left, input_right)
 	var v_dir := Input.get_axis(input_up, input_down)
@@ -75,26 +75,28 @@ func _process_movement(delta: float) -> void:
 
 	var move_input := _get_move_input()
 
-	velocity = move_input * move_speed
-	# captain moves horizontally only
-	velocity.x = move_input.x * move_speed
-	velocity.y = move_toward(velocity.y, 0, move_speed * delta)
+	if not is_captain:
+		velocity = move_input * move_speed
+	else:
+		# captain moves horizontally only
+		velocity.x = move_input.x * move_speed
+		velocity.y = move_toward(velocity.y, 0, move_speed * delta)
 		
 	velocity *= friction
 	move_and_slide()
 
 func _process_rotation(delta: float) -> void:
-	if is_stunned: return
+	if is_captain or is_stunned: return
 	if _get_move_input().length() > rotation_threshold:
 		var target_angle := velocity.angle() + deg_to_rad(90)
 		rotation = lerp_angle(rotation, target_angle, rotation_smoothness * delta)
 
 func _process_knockback(delta: float):
-	if not is_captain and is_stunned:
-		stun_timer -= delta
-		if stun_timer <= 0.0:
-			is_stunned = false
-			knockback_velocity = Vector2.ZERO
+	if is_captain or is_stunned: return
+	stun_timer -= delta
+	if stun_timer <= 0.0:
+		is_stunned = false
+		knockback_velocity = Vector2.ZERO
 
 func apply_knockback(direction: Vector2, strength: float, duration: float) -> void:
 	if is_captain: return
