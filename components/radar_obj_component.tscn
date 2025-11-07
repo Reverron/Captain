@@ -1,8 +1,14 @@
-[gd_scene format=3 uid="uid://6ebhxm2nknu0"]
+[gd_scene load_steps=2 format=3 uid="uid://6ebhxm2nknu0"]
 
-[node name="RadarObjComponent" type="Sprite2D"]
-visible = false
+[ext_resource type="Script" uid="uid://1jsc4snn3lte" path="res://components/radar_obj_component.gd" id="1_nf3er"]
+
+[node name="RadarObjComponent" type="Node2D"]
 top_level = true
+light_mask = 0
+visibility_layer = 2
+script = ExtResource("1_nf3er")
+
+[node name="MiniMapIcon" type="Sprite2D" parent="."]
 light_mask = 0
 visibility_layer = 2
 z_index = 1

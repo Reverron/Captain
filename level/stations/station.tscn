@@ -15,9 +15,9 @@ region = Rect2(48, 64, 16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_h3y18"]
 radius = 144.392
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h7qgn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_j800o"]
 atlas = ExtResource("4_6vrhq")
-region = Rect2(64, 104, 8, 8)
+region = Rect2(0, 112, 8, 8)
 
 [node name="Station" type="Node2D" groups=["radar_objs"]]
 script = ExtResource("1_wrbuq")
@@ -37,8 +37,11 @@ interact_duration = 2.0
 shape = SubResource("CircleShape2D_h3y18")
 
 [node name="RadarObjComponent" parent="." instance=ExtResource("3_j800o")]
-visible = true
-scale = Vector2(70, 70)
-texture = SubResource("AtlasTexture_h7qgn")
+
+[node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
+position = Vector2(-5, 0)
+scale = Vector2(45, 45)
+texture = SubResource("AtlasTexture_j800o")
 
 [editable path="InteractionComponent"]
+[editable path="RadarObjComponent"]

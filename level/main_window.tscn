@@ -19,7 +19,7 @@ unique_name_in_owner = true
 light_mask = 0
 visibility_layer = 2
 position = Vector2(460, 40)
-zoom = Vector2(0.2, 0.2)
+zoom = Vector2(0.1, 0.1)
 
 [node name="MiniMap" parent="." node_paths=PackedStringArray("player", "mini_map_camera") instance=ExtResource("3_bso6d")]
 unique_name_in_owner = true
