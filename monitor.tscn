@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=4 uid="uid://b0xv8a2br0nfc"]
+[gd_scene load_steps=110 format=4 uid="uid://b0xv8a2br0nfc"]
 
 [ext_resource type="Texture2D" uid="uid://d2c27bint8oj3" path="res://retro-modernized_pip_boy_editable_screen/textures/Leather_baseColor.jpeg" id="1_n6pra"]
 [ext_resource type="Texture2D" uid="uid://c7a5d2bue3oif" path="res://retro-modernized_pip_boy_editable_screen/textures/Leather_metallicRoughness.png" id="2_guvov"]
@@ -7,17 +7,18 @@
 [ext_resource type="Texture2D" uid="uid://cpdcxoa1bgqsw" path="res://retro-modernized_pip_boy_editable_screen/textures/PIP_Main_metallicRoughness.png" id="5_q6gjv"]
 [ext_resource type="Texture2D" uid="uid://ckj8fknlehn6f" path="res://retro-modernized_pip_boy_editable_screen/textures/PIP_Main_emissive.jpeg" id="6_yralg"]
 [ext_resource type="Texture2D" uid="uid://dn2ef03sqiimc" path="res://retro-modernized_pip_boy_editable_screen/textures/PIP_Main_normal.png" id="7_e2f1t"]
+[ext_resource type="PackedScene" uid="uid://btpv6s8xmhjrx" path="res://env.tscn" id="8_mjpe0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7qsf4"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_mjpe0"]
+[sub_resource type="Sky" id="Sky_dsjqh"]
 sky_material = SubResource("ProceduralSkyMaterial_7qsf4")
 
 [sub_resource type="Environment" id="Environment_dsjqh"]
 background_mode = 2
-sky = SubResource("Sky_mjpe0")
+sky = SubResource("Sky_dsjqh")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -1669,6 +1670,8 @@ environment = SubResource("Environment_dsjqh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.81783795, 0.40860716, 0.40519273, -0.57544494, -0.58321124, -0.57334787, 0.002038926, -0.70207196, 0.71210337, 0, 0, 0)
+light_color = Color(0.58950764, 0.24470821, 0.29689917, 1)
+light_energy = 0.1
 shadow_enabled = true
 
 [node name="Collada visual scene group" type="Node3D" parent="."]
@@ -1967,3 +1970,6 @@ skeleton = NodePath("")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16698456, -0.048895836, 3.88552)
 fov = 30.0
+
+[node name="Env" parent="." instance=ExtResource("8_mjpe0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.7148317, -4.549717)
