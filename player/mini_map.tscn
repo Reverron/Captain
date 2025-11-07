@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dlek3vktstvss" path="res://player/mini_map.gd" id="1_1la25"]
 [ext_resource type="Shader" uid="uid://bycjjbiep80bq" path="res://materials/mini_map.gdshader" id="1_r8eax"]
-[ext_resource type="Shader" path="res://player/radar.gdshader" id="3_lpfyc"]
+[ext_resource type="Shader" uid="uid://c0latx2pkkip2" path="res://player/radar.gdshader" id="3_lpfyc"]
 [ext_resource type="Texture2D" uid="uid://b8jpxcrm7bhvl" path="res://assets/icon.svg" id="4_dh8qp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lpfyc"]
@@ -37,23 +37,23 @@ modulate = Color(1, 1, 1, 0.6117647)
 light_mask = 0
 visibility_layer = 2
 material = SubResource("ShaderMaterial_lpfyc")
-custom_minimum_size = Vector2(330, 390)
+custom_minimum_size = Vector2(350, 350)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 230.0
-offset_bottom = 290.0
+offset_left = -175.0
+offset_top = -175.0
+offset_right = 175.0
+offset_bottom = 175.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(330, 390)
+size = Vector2i(350, 350)
 render_target_update_mode = 4
 
 [node name="Background" type="TextureRect" parent="SubViewportContainer/SubViewport"]
