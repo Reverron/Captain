@@ -10,7 +10,7 @@ class_name Player
 ## --- Attributes ---
 var is_dead: bool = false
 var can_control: bool = true
-var can_move: bool = true
+var can_move: bool = false
 @export var is_captain: bool = false
 @export var move_speed: float = 100.0
 @export var friction: float = 0.99
@@ -37,7 +37,8 @@ func _ready() -> void:
 		interaction.interact = Callable(self, "_receive_items")
 	if shield_sprite:
 		shield_sprite.hide()
-	if not is_captain: Global.main.mini_map.get_minimap_objs()
+	if not is_captain: 
+		can_move = true
 
 func _init_player_signals():
 	health_component.died.connect(_on_player_dead)

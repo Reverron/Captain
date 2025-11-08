@@ -11,14 +11,12 @@ var markers := {}
 @export var mini_map_camera: Camera2D
 
 @onready var scan_timer: Timer = %ScanTimer
-var scan_wait_time := 5.0
+var scan_wait_time := 2.0
 var marker_age := {}   # { obj: seconds_since_seen }
 var fade_speed := 0.3
 @onready var mat: ShaderMaterial = viewport.material
 var scan_elapsed := 0.0
 var scanning := false
-
-@onready var cursor: TextureRect = %Cursor
 
 func _ready() -> void:
 	init_player_marker()
@@ -30,14 +28,7 @@ func update_camera():
 	mini_map_camera.global_position = player.global_position
 	#mini_map_camera.global_rotation = player.global_rotation
 
-func _get_move_input() -> Vector2:
-	var h_dir := Input.get_axis("left1", "right1")
-	var v_dir := Input.get_axis("up1", "down1")
-	return Vector2(h_dir, v_dir).normalized()
-
 func _physics_process(delta: float) -> void:
-	cursor.global_position += _get_move_input() * delta * 100
-	
 	if scanning:
 		scan_elapsed += delta
 		mat.set_shader_parameter("scan_time", scan_elapsed)

@@ -20,6 +20,7 @@ atlas = ExtResource("4_j800o")
 region = Rect2(0, 0, 16, 16)
 
 [node name="Station" type="Node2D" groups=["radar_objs"]]
+z_index = -2
 script = ExtResource("1_wrbuq")
 
 [node name="Icon" type="Sprite2D" parent="."]

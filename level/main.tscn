@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dejkcym2erm1l"]
+[gd_scene load_steps=16 format=3 uid="uid://dejkcym2erm1l"]
 
 [ext_resource type="Script" uid="uid://bsimjmtawl0u1" path="res://level/main.gd" id="1_414cb"]
 [ext_resource type="PackedScene" uid="uid://bfcrrry3qqv4i" path="res://objs/obstacles/obstacle.tscn" id="3_nt2wp"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://du3txt64l58r3" path="res://objs/pickup_items/medkit.tscn" id="5_7vc00"]
 [ext_resource type="PackedScene" uid="uid://631pf63y7wqo" path="res://player/player_captain.tscn" id="7_j70lj"]
 [ext_resource type="PackedScene" uid="uid://cgcrj8r0lolgm" path="res://objs/pickup_items/shield.tscn" id="8_ry1g7"]
+[ext_resource type="PackedScene" uid="uid://ceg3eg7t8ni4j" path="res://level/stations/instances/station_2.tscn" id="9_ry1g7"]
+[ext_resource type="PackedScene" uid="uid://c1y2se5kfhvct" path="res://level/stations/instances/station_3.tscn" id="10_tdkxd"]
+[ext_resource type="PackedScene" uid="uid://dlvxwmtsb4pf0" path="res://level/stations/instances/station_4.tscn" id="11_fh3di"]
+[ext_resource type="PackedScene" uid="uid://cv7qy8pw7x2ne" path="res://level/stations/instances/station_5.tscn" id="12_epufq"]
 [ext_resource type="PackedScene" uid="uid://cge6vs6qifriy" path="res://level/stations/instances/station_1.tscn" id="15_b6row"]
 
 [sub_resource type="Curve2D" id="Curve2D_ns06i"]
@@ -550,7 +554,19 @@ position = Vector2(274.765, 100.719)
 [node name="Stations" type="Node2D" parent="."]
 
 [node name="Station1" parent="Stations" instance=ExtResource("15_b6row")]
-position = Vector2(88, 215)
+position = Vector2(-216, 215)
+
+[node name="Station2" parent="Stations" instance=ExtResource("9_ry1g7")]
+position = Vector2(1484, 285)
+
+[node name="Station3" parent="Stations" instance=ExtResource("10_tdkxd")]
+position = Vector2(-179, 1395)
+
+[node name="Station4" parent="Stations" instance=ExtResource("11_fh3di")]
+position = Vector2(892, -137)
+
+[node name="Station5" parent="Stations" instance=ExtResource("12_epufq")]
+position = Vector2(1063, 1226)
 
 [node name="RetroEffectRect" type="ColorRect" parent="."]
 light_mask = 0

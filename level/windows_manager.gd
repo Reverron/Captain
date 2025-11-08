@@ -22,7 +22,7 @@ func _init_main_window():
 	main_window.min_size = Vector2.ZERO
 	main_window.size = Vector2.ZERO
 
-func spawn_window():
+func spawn_window(pos: Vector2, delay: float):
 	if not window_scene:
 		return
 
@@ -30,8 +30,6 @@ func spawn_window():
 	if w is Wwindow:
 		var x = randf_range(0, spawn_area.x)
 		var y = randf_range(0, spawn_area.y)
-		w.init_window(x, y)
-
 		w.world_2d = main_window.world_2d
 		subwindows.append(w)
 		w.tree_exited.connect(func():
@@ -41,6 +39,7 @@ func spawn_window():
 		
 		w.name = "SubWindow_%d" % subwindows.size()
 		add_child(w)
+		w.init_window(x, y, pos, delay)
 
 func close_all_windows():
 	for w in subwindows:

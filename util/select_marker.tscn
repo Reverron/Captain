@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhtrkax4kv0w3"]
+
+[ext_resource type="Texture2D" uid="uid://rx6i0565eag4" path="res://assets/cursor-8x8-white.png" id="1_0fbhh"]
+[ext_resource type="Script" uid="uid://d2jlq8pnjg67k" path="res://util/select_marker.gd" id="2_o1msd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfn3b"]
+atlas = ExtResource("1_0fbhh")
+region = Rect2(40, 32, 8, 8)
+
+[node name="SelectMarker" type="TextureRect"]
+self_modulate = Color(1.022474, 0.90091956, 0.36243954, 1)
+light_mask = 0
+visibility_layer = 2
+texture_filter = 1
+custom_minimum_size = Vector2(20, 20)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = 27.0
+offset_right = -12.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_yfn3b")
+expand_mode = 1
+script = ExtResource("2_o1msd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+light_mask = 0
+visibility_layer = 2
+z_index = 2
+layout_mode = 0
+offset_left = 26.0
+offset_top = -2.0
+offset_right = 66.0
+offset_bottom = 108.0
+theme_override_constants/separation = -6
+
+[node name="LabelName" type="Label" parent="VBoxContainer"]
+light_mask = 0
+visibility_layer = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "???"
+
+[node name="LabelX" type="Label" parent="VBoxContainer"]
+light_mask = 0
+visibility_layer = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "x"
+
+[node name="LabelY" type="Label" parent="VBoxContainer"]
+light_mask = 0
+visibility_layer = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "y"

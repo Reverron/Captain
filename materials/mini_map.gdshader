@@ -12,6 +12,7 @@ void fragment() {
 	if (!scan_active) {
 		discard;
 	}
+	
 	float dist = distance(UV, vec2(0.5)) * 0.5;
 	float current_radius = scan_time * speed;
 	float mod_dist = dist - current_radius + 0.5;

@@ -5,30 +5,41 @@ class_name RadarController
 @onready var path: Path2D = $Path2D
 @onready var path_follow = $Path2D/PathFollow2D
 @onready var mini_map: MiniMap = %MiniMap
+@onready var select_marker: SelectMarker = %SelectMarker
 
-var target = position
+var target
 var dist : float
 var curve_point = position
 var curve_dist = 300.0
 var curve_angle = 60.0
 var has_arrived := false
 
+var send_ship_delay := 500
+
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("secondary"):
-		#Global.windows_manager.spawn_window()
-		var t = get_global_mouse_position()
-		for obj in mini_map.markers:
-			var distance = obj.global_position.distance_to(t)
-			if distance < 100:
-				print(obj.name)
+	_set_destination(event)
+	send_ship(event)
+
+func _physics_process(delta: float) -> void:
+	_go_to_destination(delta)
+
+func _set_destination(event):
 	if event.is_action_pressed("primary"):
 		var click_pos = event.global_position
+		print(click_pos)
 		if click_pos.x < 275 or click_pos.x > 630 or click_pos.y < 125 or click_pos.y > 470:
 			return
-				
+		select_marker.global_position = click_pos
+		select_marker.no_result()
+
 		target = get_global_mouse_position()
 		dist = player.global_position.distance_to(target)
 		
+		for obj in mini_map.markers:
+			var distance = obj.global_position.distance_to(target)
+			if distance < 100:
+				select_marker.set_label_text(obj.name, ("x: " + str(int(click_pos.x))),("y: " + str(int(click_pos.y))))
+				
 		path.global_position = player.global_position
 		path_follow.progress = 0.01
 		path.curve.clear_points()
@@ -52,8 +63,9 @@ func _input(event: InputEvent) -> void:
 			)
 			path.curve.add_point(to_local(target), to_local(curve_point - target))
 
-func _physics_process(delta: float) -> void:
-	if player.can_move and dist > 0:
+func _go_to_destination(delta):
+	if Input.is_action_pressed("secondary") and target != null:
+		select_marker.hide_labels()
 		player.global_position = path_follow.global_position
 		var target_rotation = path_follow.global_rotation + deg_to_rad(90)
 		player.global_rotation = lerp_angle(player.global_rotation, target_rotation, player.rotation_smoothness * delta)
@@ -63,3 +75,12 @@ func _physics_process(delta: float) -> void:
 		elif not has_arrived:
 			has_arrived = true
 			print("arrive")
+
+func send_ship(event):
+	if event.is_action_pressed("scan") and target != null:
+		var distance := player.global_position.distance_to(target)
+		var delay := distance / send_ship_delay
+		wait_and_spawn(delay, target)
+
+func wait_and_spawn(delay: float, pos: Vector2) -> void:
+	Global.windows_manager.spawn_window(pos, delay)
