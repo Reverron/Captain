@@ -62,7 +62,7 @@ shape = SubResource("CircleShape2D_gbhii")
 modulate = Color(1.1050899, 1.2099015, 1.6570976, 1)
 position = Vector2(4.7683716e-07, -1.9999995)
 rotation = 3.1415927
-scale = Vector2(10, 10)
+scale = Vector2(12, 12)
 texture = SubResource("AtlasTexture_mbj16")
 
 [node name="PixelEffect" parent="RadarObjComponent/MiniMapIcon" index="0"]

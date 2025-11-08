@@ -4,6 +4,7 @@ class_name RadarController
 @onready var player: Player = Global.get_captain()
 @onready var path: Path2D = $Path2D
 @onready var path_follow = $Path2D/PathFollow2D
+@onready var mini_map: MiniMap = %MiniMap
 
 var target = position
 var dist : float
@@ -14,7 +15,12 @@ var has_arrived := false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("secondary"):
-		Global.windows_manager.spawn_window()
+		#Global.windows_manager.spawn_window()
+		var t = get_global_mouse_position()
+		for obj in mini_map.markers:
+			var distance = obj.global_position.distance_to(t)
+			if distance < 100:
+				print(obj.name)
 	if event.is_action_pressed("primary"):
 		var click_pos = event.global_position
 		if click_pos.x < 275 or click_pos.x > 630 or click_pos.y < 125 or click_pos.y > 470:

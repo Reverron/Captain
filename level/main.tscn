@@ -122,7 +122,6 @@ shader_parameter/overlay_color = Color(1, 1, 1, 10)
 shader_parameter/lens_distortion_strength = 0.014000000665
 
 [node name="Main" type="Node2D" groups=["main"]]
-position = Vector2(576, 13)
 script = ExtResource("1_414cb")
 
 [node name="PlayerCaptain" parent="." instance=ExtResource("7_j70lj")]
