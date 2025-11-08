@@ -89,6 +89,7 @@ polygon = PackedVector2Array(19.2, 26.4, 19.2, 11.6, 5.2, -15.6, 2.4, -26.8, -2.
 [node name="MiniMapIcon" parent="RadarObjComponent" index="0"]
 modulate = Color(2.3353064, 2.3353064, 2.3353064, 1)
 position = Vector2(0.9999981, 7)
+scale = Vector2(15, 15)
 texture = SubResource("AtlasTexture_m7lgq")
 
 [editable path="InteractionComponent"]

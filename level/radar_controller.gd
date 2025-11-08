@@ -15,6 +15,7 @@ var curve_angle = 60.0
 var has_arrived := false
 
 var send_ship_delay := 500
+@onready var monitor: Monitor = $"../Monitor"
 
 func _input(event: InputEvent) -> void:
 	_set_destination(event)
@@ -65,6 +66,7 @@ func _set_destination(event):
 
 func _go_to_destination(delta):
 	if Input.is_action_pressed("secondary") and target != null:
+		monitor.target_speed = 5.0
 		select_marker.hide_labels()
 		player.global_position = path_follow.global_position
 		var target_rotation = path_follow.global_rotation + deg_to_rad(90)
@@ -74,7 +76,10 @@ func _go_to_destination(delta):
 			Global._process_fuel(delta)
 		elif not has_arrived:
 			has_arrived = true
+			monitor.target_speed = 0.0
 			print("arrive")
+	elif Input.is_action_just_released("secondary"):
+		monitor.target_speed = 0.0
 
 func send_ship(event):
 	if event.is_action_pressed("scan") and target != null:

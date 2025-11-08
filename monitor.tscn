@@ -1,5 +1,6 @@
-[gd_scene load_steps=107 format=4 uid="uid://b0xv8a2br0nfc"]
+[gd_scene load_steps=108 format=4 uid="uid://b0xv8a2br0nfc"]
 
+[ext_resource type="Script" uid="uid://chr2i6nxq8rcv" path="res://monitor.gd" id="1_dsjqh"]
 [ext_resource type="Texture2D" uid="uid://d2c27bint8oj3" path="res://retro-modernized_pip_boy_editable_screen/textures/Leather_baseColor.jpeg" id="1_n6pra"]
 [ext_resource type="Texture2D" uid="uid://c7a5d2bue3oif" path="res://retro-modernized_pip_boy_editable_screen/textures/Leather_metallicRoughness.png" id="2_guvov"]
 [ext_resource type="Texture2D" uid="uid://cggv7i7f6ut8y" path="res://retro-modernized_pip_boy_editable_screen/textures/Leather_normal.png" id="3_6naae"]
@@ -1651,6 +1652,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6xiqq")
 
 [node name="Monitor" type="Node3D"]
+script = ExtResource("1_dsjqh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.015666725, 0.5271406, 0.8496337, -0.94983715, -0.27329606, 0.15204746, 0.31235197, -0.80463177, 0.5049793, 0, 0, 0)
@@ -1964,3 +1966,5 @@ light_color = Color(0.23532882, 0.600735, 0.84817356, 1)
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5668464, 0.73005784, -2.1406257)
 light_color = Color(0.8902681, 0.444882, 0.42229986, 1)
+
+[editable path="Env"]
