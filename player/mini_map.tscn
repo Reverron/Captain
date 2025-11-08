@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d03w3uebf0ig6"]
+[gd_scene load_steps=10 format=3 uid="uid://d03w3uebf0ig6"]
 
 [ext_resource type="Script" uid="uid://dlek3vktstvss" path="res://player/mini_map.gd" id="1_1la25"]
 [ext_resource type="Shader" uid="uid://bycjjbiep80bq" path="res://materials/mini_map.gdshader" id="1_r8eax"]
 [ext_resource type="Shader" uid="uid://c0latx2pkkip2" path="res://player/radar.gdshader" id="3_lpfyc"]
 [ext_resource type="Texture2D" uid="uid://b8jpxcrm7bhvl" path="res://assets/icon.svg" id="4_dh8qp"]
 [ext_resource type="Shader" uid="uid://cay33qbgsrg5t" path="res://player/screen_effect.gdshader" id="5_itq3j"]
+[ext_resource type="Texture2D" uid="uid://wullxy8nd1te" path="res://assets/Radar.png" id="6_l0kmr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lpfyc"]
 shader = ExtResource("1_r8eax")
@@ -105,6 +106,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="RadarTexture" type="TextureRect" parent="SubViewportContainer/SubViewport"]
+modulate = Color(0.80462986, 1.7688968, 1.5942107, 1)
+custom_minimum_size = Vector2(360, 360)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.0
+offset_top = -182.0
+offset_right = 177.0
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_l0kmr")
+expand_mode = 1
 
 [node name="ScanTimer" type="Timer" parent="."]
 unique_name_in_owner = true

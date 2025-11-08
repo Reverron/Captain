@@ -13,9 +13,17 @@
 [sub_resource type="Curve2D" id="Curve2D_o043x"]
 
 [sub_resource type="Environment" id="Environment_qyphg"]
+background_mode = 3
 background_canvas_max_layer = -2
+ambient_light_source = 2
+ambient_light_color = Color(0.85979897, 0.85979897, 0.85979897, 1)
 glow_enabled = true
 glow_blend_mode = 1
+fog_light_color = Color(0.17775077, 0.49950022, 1, 1)
+fog_light_energy = 0.1
+adjustment_enabled = true
+adjustment_contrast = 1.05
+adjustment_saturation = 1.1
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_biafw"]
 load_path = "res://.godot/imported/energy.png-d31ae10deb2f267a25814b3eac80d643.ctex"
