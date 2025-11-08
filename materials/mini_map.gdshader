@@ -7,21 +7,29 @@ uniform float wait_time: hint_range(0.0, 5.0, 0.1) = 0.5;
 uniform float speed: hint_range(0.0, 10.0, 0.1) = 1.0;
 uniform float alpha_boost: hint_range(1.0, 5.0, 0.1) = 2.0;
 
+uniform bool scan_active = false;
+uniform float scan_time = 0.0;  
+
 void fragment() {
 	float dist = distance(UV, vec2(0.5)) * 0.5;
-	float mod_dist = dist - mod(TIME * speed, 0.75 + wait_time) + 0.5;
+	
+	vec2 center = vec2(0.5, 0.5);
+	vec2 local_coords = UV - center;
+	float distance = length(local_coords);
+	float circleRadius = radius * 0.5;
+	if (distance > circleRadius) {
+		discard;
+	}
+
+	if (!scan_active) {
+		discard;
+	}
+	float current_radius = scan_time * speed;
+	float mod_dist = dist - current_radius + 0.5;
+	//float mod_dist = dist - mod(TIME * speed, 0.75 + wait_time) + 0.5;
 	COLOR.a *= 1.0 - step(0.5, mod_dist);
 	COLOR.a -= step(0.5 - circle_width / 2.0, mod_dist) - 1.0;
 	COLOR.a += smoothstep(0.5 - circle_width / 2.0, 0.5 + circle_width / 2.0, mod_dist);
 	COLOR.a -= 2.0 * dist;
 	COLOR.a *= alpha_boost;
-
-	vec2 center = vec2(0.5, 0.5);
-	vec2 local_coords = (UV - center);
-	float distance = length(local_coords);
-	float circleRadius = radius / float(2);
-
-	if (distance > circleRadius){
-		discard;
-	}
 }

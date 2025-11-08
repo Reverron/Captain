@@ -13,14 +13,21 @@ var curve_angle = 60.0
 var has_arrived := false
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("secondary"):
+		Global.windows_manager.spawn_window()
 	if event.is_action_pressed("primary"):
+		var click_pos = event.global_position
+		if click_pos.x < 275 or click_pos.x > 630 or click_pos.y < 125 or click_pos.y > 470:
+			return
+				
+		target = get_global_mouse_position()
+		dist = player.global_position.distance_to(target)
+		
 		path.global_position = player.global_position
 		path_follow.progress = 0.01
 		path.curve.clear_points()
 		has_arrived = false
 		
-		target = get_global_mouse_position()
-		dist = player.global_position.distance_to(target)
 		var to_target = (target - player.global_position).normalized()
 		var forward = Vector2(
 			cos(player.global_rotation - deg_to_rad(90)), 
@@ -38,8 +45,6 @@ func _input(event: InputEvent) -> void:
 				curve_dist * cos(player.global_rotation) + player.global_position.y
 			)
 			path.curve.add_point(to_local(target), to_local(curve_point - target))
-	if event.is_action_pressed("right1"):
-		Global.windows_manager.spawn_window()
 
 func _physics_process(delta: float) -> void:
 	if player.can_move and dist > 0:
