@@ -12,6 +12,7 @@ func _ready():
 	_init_main_window()
 	main_sub_window.files_dropped.connect(_on_files_dropped)
 	main_sub_window.world_2d = main_window.world_2d
+	main_sub_window.grab_focus()
 
 func _init_main_window():
 	main_window.gui_embed_subwindows = false

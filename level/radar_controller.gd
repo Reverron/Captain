@@ -19,7 +19,7 @@ var send_ship_delay := 500
 
 func _input(event: InputEvent) -> void:
 	_set_destination(event)
-	send_ship(event)
+	#send_ship(event)
 
 func _physics_process(delta: float) -> void:
 	_go_to_destination(delta)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvcyx2gvb822c"]
+[gd_scene load_steps=7 format=3 uid="uid://bvcyx2gvb822c"]
 
 [ext_resource type="Texture2D" uid="uid://b8jpxcrm7bhvl" path="res://assets/icon.svg" id="1_1ftww"]
 [ext_resource type="Script" uid="uid://dt8orla2jidtw" path="res://player/side_screen.gd" id="1_1x5p7"]
@@ -193,6 +193,14 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 1.0
 
+[sub_resource type="InputEventKey" id="InputEventKey_1x5p7"]
+device = -1
+keycode = 87
+unicode = 119
+
+[sub_resource type="Shortcut" id="Shortcut_l53wi"]
+events = [SubResource("InputEventKey_1x5p7")]
+
 [node name="SideScreen" type="SubViewportContainer"]
 light_mask = 0
 custom_minimum_size = Vector2(160, 190)
@@ -239,13 +247,26 @@ offset_bottom = 176.0
 unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
+focus_neighbor_left = NodePath("../Button3")
+focus_neighbor_top = NodePath("../Button3")
+focus_neighbor_right = NodePath("../Button2")
+focus_neighbor_bottom = NodePath("../Button2")
+focus_next = NodePath("../Button2")
+focus_previous = NodePath("../Button3")
 theme_override_font_sizes/font_size = 32
+shortcut = SubResource("Shortcut_l53wi")
 text = "START"
 
 [node name="Button2" type="Button" parent="SubViewport/Background/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
+focus_neighbor_left = NodePath("../Button1")
+focus_neighbor_top = NodePath("../Button1")
+focus_neighbor_right = NodePath("../Button3")
+focus_neighbor_bottom = NodePath("../Button3")
+focus_next = NodePath("../Button3")
+focus_previous = NodePath("../Button1")
 theme_override_font_sizes/font_size = 32
 text = "CREDITS"
 
@@ -253,7 +274,11 @@ text = "CREDITS"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
+focus_neighbor_left = NodePath("../Button2")
+focus_neighbor_top = NodePath("../Button2")
+focus_neighbor_right = NodePath("../Button1")
+focus_neighbor_bottom = NodePath("../Button1")
+focus_next = NodePath("../Button1")
+focus_previous = NodePath("../Button2")
 theme_override_font_sizes/font_size = 32
 text = "NOTHIN"
-
-[connection signal="mouse_entered" from="SubViewport/Background/VBoxContainer/Button1" to="." method="_on_button_1_mouse_entered"]
