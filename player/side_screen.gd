@@ -6,13 +6,13 @@ extends SubViewportContainer
 @onready var button_4: Button = %Button4
 
 func _ready() -> void:
-	set_maun_menu()
+	set_main_menu()
 
-func set_maun_menu():
+func set_main_menu():
 	button_1.grab_focus()
 	button_1.text = "CONTROL"
-	button_2.text = "START"
-	button_3.text = "CREDITS"
+	button_2.text = "CREDITS"
+	button_3.text = "START"
 	button_4.text = "NOTHIN"
 
 func set_game_menu():

@@ -321,7 +321,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.7722081, 1.353256, 0.77744275, 1)
 
-[node name="ControlMenu" type="Control" parent="SubViewportContainer/SubViewport"]
+[node name="Menu" type="Control" parent="SubViewportContainer/SubViewport"]
 z_index = 1
 layout_mode = 3
 anchors_preset = 15
@@ -330,7 +330,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/ControlMenu"]
+[node name="Control" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -342,10 +343,10 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
-[node name="Panel" type="Panel" parent="SubViewportContainer/SubViewport/ControlMenu/MarginContainer"]
+[node name="Panel" type="Panel" parent="SubViewportContainer/SubViewport/Menu/Control"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/ControlMenu/MarginContainer/Panel"]
+[node name="LabelTitle" type="Label" parent="SubViewportContainer/SubViewport/Menu/Control/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -359,60 +360,157 @@ text = "CONTROL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="SubViewportContainer/SubViewport/ControlMenu/MarginContainer/Panel"]
+[node name="LabelMenuC" type="Label" parent="SubViewportContainer/SubViewport/Menu/Control/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -155.0
-offset_top = 54.0
+offset_top = 45.0
 offset_right = 177.0
-offset_bottom = 104.0
+offset_bottom = 95.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.41960785, 0.9529412, 0.3882353, 1)
 theme_override_font_sizes/font_size = 26
 text = "Menu Controls:"
 
-[node name="Label2" type="Label" parent="SubViewportContainer/SubViewport/ControlMenu/MarginContainer/Panel"]
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/Menu/Control/Panel/LabelMenuC"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -155.0
-offset_top = 93.0
-offset_right = 177.0
-offset_bottom = 168.0
+offset_left = -166.0
+offset_top = 40.0
+offset_right = 166.0
+offset_bottom = 115.0
 grow_horizontal = 2
+theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 24
 text = "W&S: Navigate Menu
-SPACE BAR: Confirm"
+Space bar: Confirm"
 
-[node name="Label5" type="Label" parent="SubViewportContainer/SubViewport/ControlMenu/MarginContainer/Panel"]
+[node name="LabelGameC" type="Label" parent="SubViewportContainer/SubViewport/Menu/Control/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -155.0
-offset_top = 182.0
+offset_top = 160.0
 offset_right = 177.0
-offset_bottom = 232.0
+offset_bottom = 210.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.41977924, 0.95484024, 0.38950685, 1)
 theme_override_font_sizes/font_size = 26
 text = "Game Controls:"
 
-[node name="Label4" type="Label" parent="SubViewportContainer/SubViewport/ControlMenu/MarginContainer/Panel"]
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/Menu/Control/Panel/LabelGameC"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -166.0
+offset_top = 40.0
+offset_right = 166.0
+offset_bottom = 148.0
+grow_horizontal = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 24
+text = "Left Click: Select Target 
+Right Click: Hold to move
+Focus on the window first 
+to take over its control"
+
+[node name="Credits" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="Panel" parent="SubViewportContainer/SubViewport/Menu/Credits"]
+layout_mode = 2
+
+[node name="LabelTitle" type="Label" parent="SubViewportContainer/SubViewport/Menu/Credits/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelMenuC" type="Label" parent="SubViewportContainer/SubViewport/Menu/Credits/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -155.0
-offset_top = 214.0
+offset_top = 45.0
 offset_right = 177.0
-offset_bottom = 264.0
+offset_bottom = 95.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.41960785, 0.9529412, 0.3882353, 1)
+theme_override_font_sizes/font_size = 26
+text = "About The Game:"
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/Menu/Credits/Panel/LabelMenuC"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -166.0
+offset_top = 40.0
+offset_right = 166.0
+offset_bottom = 115.0
+grow_horizontal = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 16
+text = "Themes: Nothing and What's up
+\"You are stuck in here, figure out
+what's up and go up to escape,
+There's nothing down there......\"
+Focused on Programming, Design, all the
+art are from online"
+
+[node name="LabelGameC" type="Label" parent="SubViewportContainer/SubViewport/Menu/Credits/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.0
+offset_top = 240.0
+offset_right = 177.0
+offset_bottom = 290.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.41977924, 0.95484024, 0.38950685, 1)
+theme_override_font_sizes/font_size = 26
+text = "Assets Links:"
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/Menu/Credits/Panel/LabelGameC"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -166.0
+offset_top = 40.0
+offset_right = 166.0
+offset_bottom = 148.0
+grow_horizontal = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 12
 text = "Left Click: Select Target 
-                  / Focus Window
-Right Click: Hold to move"
+Right Click: Hold to move
+"
 
 [node name="ScanTimer" type="Timer" parent="."]
 unique_name_in_owner = true

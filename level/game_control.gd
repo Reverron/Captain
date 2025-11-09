@@ -9,16 +9,16 @@ class_name GameControl
 
 func _ready() -> void:
 	Global.game_controller = self
-	set_game_menu_content()
+	set_game_menu_content(0)
 
-func set_game_menu_content():
+func set_game_menu_content(menu_id: int):
 	main.hide()
 	select_marker.hide()
-	mini_map.radar.hide()
 	camera_controller.can_control = false
+	mini_map.set_menu(menu_id)
 
 func set_game_content():
+	mini_map.set_game()
 	main.show()
 	select_marker.show()
-	mini_map.radar.show()
 	camera_controller.can_control = true

@@ -22,6 +22,15 @@ var scanning := false
 @onready var sub_viewport: SubViewport = $SubViewportContainer/SubViewport
 @onready var side_sub_viewport: SubViewport = $"../GameControl/SideScreen/SubViewport"
 @onready var radar: Control = $SubViewportContainer/SubViewport/Radar
+@onready var control_menu: Control = $SubViewportContainer/SubViewport/Menu
+
+func set_menu(menu_id: int):
+	radar.hide()
+	control_menu.show()
+
+func set_game():
+	control_menu.hide()
+	radar.show()
 
 func _ready() -> void:
 	init_player_marker()
